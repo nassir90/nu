@@ -1,0 +1,12 @@
+.box {
+	background-color: olive;
+	border: 5px outset olive;
+	color: maroon;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+body {
+	background: maroon;
+}
+
