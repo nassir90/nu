@@ -1,5 +1,12 @@
-php:
-	php template/biosecurity.php > output/biosecurity.html
-	php template/maybevirusnondemic.php > output/maybevirusnondemic.html
-	php template/index.php > output/index.html
+php: folders
+	php ./template/index.php > ./output/index.html
+	php ./template/flashcardsets/acidsandbases.php > ./output/flashcardsets/acidsandbases.html
+	cp ./template/style.css ./output/style.css
+
+folders:
+	mkdir -p ./output
+	mkdir -p ./output/flashcardsets
+
+clean:
+	rm ./output/* -R
 	
