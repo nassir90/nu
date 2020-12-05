@@ -11,10 +11,6 @@
 	</header>
 	
 	<table class="box">
-		<tr>
-			<td>The definition of an acid in arrhenious' theory</td>
-			<td>A substance that dissociates in water to produce hydrogen ions</td>
-		</tr>
 	</table>
 	
 	<footer class="box">
