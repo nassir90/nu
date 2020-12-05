@@ -14,8 +14,8 @@
 			chdir("template/flashcardsets");
 			$file = fopen("acidsandbases.txt", "r");
 			
-			while (!feof($file)) {
-				list($left, $right) = explode("=", fgets($file));
+			while (($line = fgets($file)) !== false) {
+				list($left, $right) = explode("=", $line);
 				print("<tr><td>$left</td><td>$right</td></tr>");
 			}
 			

@@ -36,8 +36,8 @@
 				
 				$counter = 0;
 				
-				while(!feof($file)) {
-					list($left, $right) = explode("=", fgets($file));
+				while(($line = fgets($file)) !== false) {
+					list($left, $right) = explode("=", $line);
 					print("<tr><td><button data-card=\"$left=$right\" class='inner-button' id=\"$counter\" onclick=\"change_card('$counter')\">$left</button></td></tr>");
 					$counter += 1;
 				}
@@ -53,6 +53,9 @@
 
 	<section class="box">
 		<h1>Links to other pages</h1>
-		<ul><li><a href="https://openra.net">OpenRA - an RTS game</a></li></ul>
+		<ul>
+			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
+			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
+		</ul>
 	</section>
 </body>

@@ -1,2 +1,3 @@
 Arrhenious' definition of an acid=A substance that dissociates in water to produce hydrogen ions
 Arrhenious' definition of a base=A substance that dissociates in water to produce hydroxide ions
+Oxonium ion=H³O⁺
