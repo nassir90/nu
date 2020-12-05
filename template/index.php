@@ -11,8 +11,26 @@
 	</header>
 
 	<section class="box">
+		<table class="qa">
+			<tr>
+				<td>TestQ</td>
+				<td>TestA</td>
+			</tr>
+		</table>
 		
-		<input id="flashcardset">
+		<section class="cardbay">
+		<table>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+			<tr><td>Example</td></tr>
+		</table>
+		</section>
 		
 		<h1>Flashcard sets</h1>
 		<p><li><a href="flashcardsets/acidsandbases.html">acids and bases</a></li></p>

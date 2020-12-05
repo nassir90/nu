@@ -23,9 +23,15 @@ table {
 	table-layout: fixed;
 }
 
-input {
-	border: 3px inset maroon;
-	background-color: maroon;
-	color: olive;
-	width: 90%;
+.cardbay {
+	width: 15%;
+	float: right;
+	height: 150px;
+	overflow-y: auto;
+}
+
+.qa {
+	float: left;
+	height: 150px;
+	width: 80%;
 }

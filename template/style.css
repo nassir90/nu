@@ -22,3 +22,16 @@ body {
 table {
 	table-layout: fixed;
 }
+
+.cardbay {
+	width: 15%;
+	float: right;
+	height: 150px;
+	overflow-y: auto;
+}
+
+.qa {
+	float: left;
+	height: 150px;
+	width: 80%;
+}
