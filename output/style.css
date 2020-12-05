@@ -22,3 +22,10 @@ body {
 table {
 	table-layout: fixed;
 }
+
+input {
+	border: 3px inset maroon;
+	background-color: maroon;
+	color: olive;
+	width: 90%;
+}

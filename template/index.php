@@ -11,7 +11,9 @@
 	</header>
 
 	<section class="box">
-		<p>Html is simple once you start trying to use it</p>
+		
+		<input id="flashcardset">
+		
 		<h1>Flashcard sets</h1>
 		<p><li><a href="flashcardsets/acidsandbases.html">acids and bases</a></li></p>
 	</section>
