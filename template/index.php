@@ -3,6 +3,16 @@
 <head>
 	<title>Naza's Website</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script>
+	
+	function change_card(button_id) {
+		var data_card = document.getElementById(button_id).getAttribute("data-card").split("=");
+		document.getElementById("left_text").innerHTML = data_card[0];
+		document.getElementById("right_text").innerHTML = data_card[1];
+	}
+	
+	</script>
 <head>
 
 <body>
@@ -11,24 +21,16 @@
 	</header>
 
 	<section class="box">
-		<table class="qa">
+		<table class="card-bay">
 			<tr>
-				<td>TestQ</td>
-				<td>TestA</td>
+				<td id="left_text">Question</td>
+				<td id="right_text">Answer</td>
 			</tr>
 		</table>
 		
-		<section class="cardbay">
-		<table>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
-			<tr><td>Example</td></tr>
+		<section class="card-select">
+		<table style="width:100%">
+			<tr><td><button class="inside-button" onclick="change_card('button1')" id="button1" data-card="ss=dog">Arr</button></td></tr>
 		</table>
 		</section>
 		

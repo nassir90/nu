@@ -9,8 +9,6 @@ body {
 	border: 5px outset olive;
 	margin-bottom: 3px;
 	margin-top: 3px;
-	overflow: auto;
-	width: 100%;
 }
 
 .inside-box, td {
@@ -19,19 +17,24 @@ body {
 	border: 5px inset maroon;
 }
 
+.inside-button {
+	background-color: maroon;
+	color: olive;
+	border: 0px;
+}
+
 table {
 	table-layout: fixed;
 }
 
-.cardbay {
-	width: 15%;
-	float: right;
+.card-select {
+	width: 45%;
 	height: 150px;
-	overflow-y: auto;
+	overflow: auto;
 }
 
-.qa {
+.card-bay {
 	float: left;
 	height: 150px;
-	width: 80%;
+	width: 50%;
 }
