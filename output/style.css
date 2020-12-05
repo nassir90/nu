@@ -11,13 +11,13 @@ body {
 	margin-top: 3px;
 }
 
-.inside-box, td {
+.inner-box, td {
 	background-color: maroon;
 	color: olive;
 	border: 5px inset maroon;
 }
 
-.inside-button {
+.inner-button {
 	background-color: maroon;
 	color: olive;
 	border: 0px;
@@ -25,6 +25,7 @@ body {
 
 table {
 	table-layout: fixed;
+	width: 100%;
 }
 
 .card-select {

@@ -13,7 +13,7 @@
 	}
 	
 	</script>
-<head>
+</head>
 
 <body>
 	<header class="box">
@@ -23,23 +23,36 @@
 	<section class="box">
 		<table class="card-bay">
 			<tr>
-				<td id="left_text">Question</td>
-				<td id="right_text">Answer</td>
+				<td id="left_text">N/A</td>
+				<td id="right_text">N/A</td>
 			</tr>
 		</table>
 		
 		<section class="card-select">
 		<table style="width:100%">
-			<tr><td><button class="inside-button" onclick="change_card('button1')" id="button1" data-card="ss=dog">Arr</button></td></tr>
+			<?php
+				chdir("template");
+				$file = fopen("flashcardsets/acidsandbases.txt", "r") or die();
+				
+				$counter = 0;
+				
+				while(!feof($file)) {
+					list($left, $right) = explode("=", fgets($file));
+					print("<tr><td><button data-card=\"$left=$right\" class='inner-button' id=\"$counter\" onclick=\"change_card('$counter')\">$left</button></td></tr>");
+					$counter += 1;
+				}
+				
+				fclose($file);
+			?>
 		</table>
 		</section>
 		
 		<h1>Flashcard sets</h1>
-		<p><li><a href="flashcardsets/acidsandbases.html">acids and bases</a></li></p>
+		<ul><li><a href="flashcardsets/acidsandbases.html">acids and bases</a></li></ul>
 	</section>
 
 	<section class="box">
 		<h1>Links to other pages</h1>
-		<p><li><a href="https://openra.net">OpenRA - an RTS game</a></li></p>
+		<ul><li><a href="https://openra.net">OpenRA - an RTS game</a></li></ul>
 	</section>
 </body>
