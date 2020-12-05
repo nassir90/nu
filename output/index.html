@@ -20,15 +20,4 @@
 		<h1>Links to other pages</h1>
 		<p><li><a href="https://openra.net">OpenRA - an RTS game</a></li></p>
 	</section>
-	
-	<table class="box">
-		<tr>
-		<td>
-				Question
-		</td>
-		<td>
-				Answer
-		</td>
-		</tr>
-	</table>
 </body>
