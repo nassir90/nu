@@ -10,14 +10,12 @@
 		<h1>Flashcard set for acids and bases</h1>
 	</header>
 	
-	<section class="box">
-		<table>
-			<tr>
-				<td>The definition of an acid in arrhenious' theory</td>
-				<td>A substance that dissociates in water to produce hydrogen ions</td>
-			</tr>
-		</table>
-	</section>
+	<table class="box">
+		<tr>
+			<td>The definition of an acid in arrhenious' theory</td>
+			<td>A substance that dissociates in water to produce hydrogen ions</td>
+		</tr>
+	</table>
 	
 	<footer class="box">
 		<center><a href="../index.html">Home</a></center>
