@@ -14,6 +14,8 @@ body {
 	border: 5px outset hsl(130, 100%, 40%);
 	margin-bottom: 3px;
 	margin-top: 3px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .inner-box, td {

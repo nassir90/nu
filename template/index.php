@@ -3,7 +3,7 @@
 <head>
 	<title>Naza's Website</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	
 	<script>
 	
@@ -54,6 +54,10 @@
 		</ol>
 		
 		<h1>Flash cards <small>(wip)</small></h1>
+		<noscript>
+		Note: This won't work as you have javascript disabled
+		</noscript>
+		
 		<table class="card-row">
 			<tr>
 				<td id="left_text">N/A</td>
