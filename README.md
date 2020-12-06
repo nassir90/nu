@@ -1,2 +1,2 @@
 # Naza's website
-[Go there](nazauzoukwu.xyz)
+[Go there](https://nazauzoukwu.xyz)
