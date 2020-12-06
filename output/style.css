@@ -10,7 +10,7 @@ body, td, .inner-box{
 }
 
 .inner-box, td {
-	border: 5px inset hsl(130, 100%, 10%);
+	border: 7px inset hsl(130, 100%, 10%);
 }
 
 .box {
@@ -32,7 +32,7 @@ body, td, .inner-box{
 }
 
 textarea {
-	width: 100%;
+	width: 90%;
 	resize: none;
 }
 

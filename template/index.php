@@ -87,7 +87,6 @@
 		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
 		
 		<h1>Notes</h1>
-		
 		<h4>Chemistry</h4>
 		<ul>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
@@ -104,6 +103,8 @@
 		<ul>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
+			<li><a href="https://www.theleavingcert.com/exam-papers/">Leaving cert exam papers</a></li>
+			<li><a href="http://shakespeare.mit.edu/lear/">King Lear play<small>(old english)</small></a></li>
 		</ul>
 	</footer>
 </body>

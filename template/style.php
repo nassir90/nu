@@ -15,7 +15,7 @@ body, td, .inner-box{
 }
 
 .inner-box, td {
-	border: 5px inset <?=$dark_green?>;
+	border: 7px inset <?=$dark_green?>;
 }
 
 .box {
@@ -37,7 +37,7 @@ body, td, .inner-box{
 }
 
 textarea {
-	width: 100%;
+	width: 90%;
 	resize: none;
 }
 

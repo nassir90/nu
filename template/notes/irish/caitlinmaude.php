@@ -23,6 +23,9 @@
 		<table>
 			<?php print(file_to_table("template/notes/irish/caitlinmaude_geibheann_vocabulary.txt"));?>
 		</table>
+		
+		<h4>Íomhanna</h4>
+		<p>Feicimid dhá íomhanna sa dán seo: íomhá an anmhí san áit a bhí dual dó, agus íomhá an ainmhí i zú.</p>
 	</section>
 	
 	<center class="box"><a href="../../index.html">Home</a></center>
