@@ -1,3 +1,4 @@
+
 /*
  * The spacing is a nightmare. I apologise if you have OCD.
  */
@@ -11,11 +12,8 @@ body {
 .box {
 	background-color: hsl(130, 100%, 40%);
 	color: hsl(130, 100%, 10%);
-	border: 5px outset hsl(130, 100%, 40%);
-	margin-bottom: 3px;
-	margin-top: 3px;
-	margin-left: 5%;
-	margin-right: 5%;
+	border: 10px outset hsl(130, 100%, 40%);
+	margin: 1%;
 }
 
 .inner-box, td {

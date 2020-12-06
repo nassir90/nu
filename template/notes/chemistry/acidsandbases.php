@@ -10,9 +10,7 @@
 </head>
 
 <body>
-	<header class="box">
-		<h1>Acids and bases</h1>
-	</header>
+	<h1 class="box">Acids and bases</h1>
 	
 	<section class="box">
 	<table>
@@ -20,7 +18,5 @@
 	</table>
 	</section>
 	
-	<footer class="box">
-		<center><a href="../../index.html">Home</a></center>
-	</footer>
+	<center class="box"><a href="../../index.html">Home</a></center>
 </body>

@@ -39,9 +39,7 @@
 </head>
 
 <body>
-	<header class="box">
-		<h1>Naza's website</h1>
-	</header>
+	<h1 class="box">Naza's website</h1>
 
 	<section class="box">
 		<h1>Languages used to make this page <small>(in order of quality)</small></h1>
@@ -54,15 +52,10 @@
 		</ol>
 		
 		<h1>Flash cards <small>(wip)</small></h1>
-		<noscript>
-		Note: This won't work as you have javascript disabled
-		</noscript>
-		
+		<noscript>Note: This won't work as you have javascript disabled</noscript>
 		<table class="card-row">
-			<tr>
-				<td id="left_text">N/A</td>
-				<td id="right_text">N/A</td>
-			</tr>
+			<td id="left_text">N/A</td>
+			<td id="right_text">N/A</td>
 		</table>
 		
 		<section class="card-row">

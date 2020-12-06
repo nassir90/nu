@@ -10,9 +10,8 @@
 </head>
 
 <body>
-	<header class="box">
-		<h1>Caitlín Maude</h1>
-	</header>
+	<h1 class="box">Caitlín Maude</h1>
+	
 	<section class="box">
 		<h1>Cúlra an fhile</h1>
 		<table>
@@ -25,7 +24,6 @@
 		<?php print(file_to_table("template/notes/irish/caitlinmaude_geibheann_vocabulary.txt"));?>
 		</table>
 	</section>
-	<footer class="box">
-		<center><a href="../../index.html">Home</a></center>
-	</footer>
+	
+	<center class="box"><a href="../../index.html">Home</a></center>
 </body>
