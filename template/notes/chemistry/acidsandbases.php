@@ -2,7 +2,7 @@
 
 <head>
 	<title>Flashcard set for acids and bases</title>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../../style.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 	</header>
 	<table class="box">
 		<?php
-			chdir("template/flashcardsets");
+			chdir("template/notes/chemistry");
 			$file = fopen("acidsandbases.txt", "r");
 			
 			while (($line = fgets($file)) !== false) {
