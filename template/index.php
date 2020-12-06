@@ -16,11 +16,21 @@
 	
 	function append_card() {
 		var table = document.getElementById("card-selector");
-		var data_card = document.getElementById("entry-adder").value.split("=");
+		var left_entry = document.getElementById("left-entry").value.trim();
+		var right_entry = document.getElementById("right-entry").value.trim();
+		
+		if (left_entry.length == 0 || right_entry.length == 0) {
+			return;
+		}
+		
 		var id = "added" + counter;
-		entry = "<tr><td><button data-card=\""+ data_card[0] + "=" + data_card[1] + "\" class='inner-button' id=\"" + id + "\" onclick=\"change_card('" + id + "')\">" + data_card[0] + "</button></td></tr>";
+		
+		// genesis 6:5
+		entry = "<tr><td><button data-card=\""+ left_entry + "=" + right_entry + "\" class='inner-button' id=\"" + id + "\" onclick=\"change_card('" + id + "')\">" + left_entry + "</button></td></tr>";
 		counter += 1;
 		
+		document.getElementById("left-entry").value = "";
+		document.getElementById("right-entry").value = "";
 		table.innerHTML += entry;
 	}
 	
@@ -33,6 +43,16 @@
 	</header>
 
 	<section class="box">
+		<h1>Languages used to make this page <small>(in order of quality)</small></h1>
+		<ol>
+			<li>PHP</li>
+			<li>CSS</li>
+			<li>HTML</li>
+			<li>...</li>
+			<li>Javascript</li>
+		</ol>
+		
+		<h1>Flash cards <small>(wip)</small></h1>
 		<table class="card-bay">
 			<tr>
 				<td id="left_text">N/A</td>
@@ -61,13 +81,14 @@
 		</table>
 		</section>
 		
-		<textarea class="inner-box" style="max-width:50%; max-height:5em" id="entry-adder">Add entries</textarea>
-		<button class="inner-box" onclick="append_card()" id="append-button">Add</button>
+		<textarea class="inner-box" style="width:23%; height:5em" id="left-entry"></textarea>
+		<textarea class="inner-box" style="width:23%; height:5em" id="right-entry"></textarea>
+		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
 		
 		<h1>Notes</h1>
 		<h4>Chemistry</h4>
 		<ul>
-			<li><a href="notes/chemistry/acidsandbases.html">acids and bases</a></li>
+			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
 		</ul>
 		<h4>Irish</h4>
 		<ul>
@@ -75,12 +96,11 @@
 		</ul>
 	</section>
 
-	<section class="box">
+	<footer class="box">
 		<h1>Links to other pages</h1>
 		<ul>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a>Monero account - coming soon</a></li>
 		</ul>
-	</section>
+	</footer>
 </body>
