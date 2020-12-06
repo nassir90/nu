@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1 class="box">Acids and bases</h1>
+	<h1>Acids and bases</h1>
 	
 	<section class="box">
 	<?php print(file_to_table("template/notes/chemistry/acidsandbases.txt")); ?>

@@ -7,32 +7,48 @@
 	
 	<script>
 	
-	var counter = 0;
-	
-	function change_card(button_id) {
-		var data_card = document.getElementById(button_id).getAttribute("data-card").split("=");
-		document.getElementById("left_text").innerHTML = data_card[0];
-		document.getElementById("right_text").innerHTML = data_card[1];
+	function blur_element(id) {
+		document.getElementById(id).setAttribute("style", "filter:blur(3px)");
 	}
 	
-	function append_card() {
-		var table = document.getElementById("card-selector");
-		var left_entry = document.getElementById("left-entry").value.trim();
-		var right_entry = document.getElementById("right-entry").value.trim();
-		
-		if (left_entry.length == 0 || right_entry.length == 0) {
-			return;
+	function unblur_element(id) {
+		document.getElementById(id).setAttribute("style", "filter:none");
+	}
+	
+	window.onkeydown = function(e) {
+		if (e.keyCode == 65) {
+			blur_element("left_text");
+		} else if (e.keyCode == 68) {
+			blur_element("right_text");
 		}
-		
-		var id = "added" + counter;
+	}
+	
+	window.onkeyup = function(e) {
+		if (e.keyCode == 65) {
+			unblur_element("left_text");
+		} else if (e.keyCode == 68) {
+			unblur_element("right_text");
+		}
+	}
+	
+	function update_card_bay(button) {
+		var parts = button.getAttribute("data-card").split("=");
+		document.getElementById("left_text").innerHTML = parts[0];
+		document.getElementById("right_text").innerHTML = parts[1];
+	}
+	
+	function add_card() {
+		var left_entry = document.getElementById("left_entry");
+		var right_entry = document.getElementById("right_entry");
+		var l = left_entry.value.trim();
+		var r = right_entry.value.trim();
 		
 		// genesis 6:5
-		entry = "<tr><td><button data-card=\""+ left_entry + "=" + right_entry + "\" class='inner-button' id=\"" + id + "\" onclick=\"change_card('" + id + "')\">" + left_entry + "</button></td></tr>";
-		counter += 1;
+		if (!(l.length && r.length)) return;
 		
-		document.getElementById("left-entry").value = "";
-		document.getElementById("right-entry").value = "";
-		table.innerHTML += entry;
+		document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";;
+		left_entry.value = "";
+		right_entry.value = "";
 	}
 	
 	</script>
@@ -53,38 +69,42 @@
 		
 		<h1>Flash cards <small>(wip)</small></h1>
 		<noscript>Note: This won't work as you have javascript disabled</noscript>
-		<table class="card-row">
+		
+		<h4>Card bay</h4>
+		<table class="row">
 			<td id="left_text">N/A</td>
 			<td id="right_text">N/A</td>
 		</table>
 		
-		<section class="card-row">
-		<table id="card-selector">
-			<?php
-				chdir("template");
-				$file = fopen("notes/chemistry/acidsandbases.txt", "r") or die();
-				
-				$counter = 0;
-				
-				while(($line = fgets($file)) !== false) {
-					list($left, $right) = explode("=", $line);
+		<h4>Change deck / card</h4>
+		<section class="row">
+			<table id="card_selector">
+				<?php
+					$file = fopen("template/notes/chemistry/acidsandbases.txt", "r") or die();
 					
-					$id = "flashcard" . $counter;
-					print("<tr><td><button data-card=\"$left=$right\" class='inner-button' id=\"$id\" onclick=\"change_card('$id')\">$left</button></td></tr>");
-					$counter += 1;
-				}
-				
-				fclose($file);
-			?>
-		</table>
+					while(($line = fgets($file)) !== false) {
+						list($left, $right) = explode("=", $line);
+						
+						print("<tr><td><button data-card=\"$left=$right\" onclick=\"update_card_bay(this)\">$left</button></td></tr>");
+					}
+					
+					fclose($file);
+				?>
+			</table>
 		</section>
-		
 		<table>
-			<td><textarea class="inner-button" id="left-entry"></textarea></td>
-			<td><textarea class="inner-button" id="right-entry"></textarea></td>
+			<td><textarea id="left_entry">Question...</textarea></td>
+			<td><textarea id="right_entry">Answer...</textarea></td>
+			<td><button onclick="add_card()">Add</button></td>
 		</table>
 		
-		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
+		<h4>Study</h4>
+		<table>
+			<td><button>Next (Enter)</button></td>
+			<td><button onclick="blur_element('left_text')">Hide Left (A)</button></td>
+			<td><button onclick="blur_element('right_text')">Hide Right (B)</button></td>
+			<td><button onclick="unblur_element('left_text'); unblur_element('right_text')">Show Both</button></td>
+		</table>
 		
 		<h1>Notes</h1>
 		<h4>Chemistry</h4>
@@ -105,6 +125,7 @@
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
 			<li><a href="https://www.theleavingcert.com/exam-papers/">Leaving cert exam papers</a></li>
 			<li><a href="http://shakespeare.mit.edu/lear/">King Lear play <small>(old english)</small></a></li>
+			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
 		</ul>
 	</footer>
 </body>
