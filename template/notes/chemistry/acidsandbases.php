@@ -1,3 +1,7 @@
+<?php
+	require("preprocessing/utilities.php")
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -10,19 +14,9 @@
 		<h1>Flashcard set for acids and bases</h1>
 	</header>
 	<table class="box">
-		<?php
-			chdir("template/notes/chemistry");
-			$file = fopen("acidsandbases.txt", "r");
-			
-			while (($line = fgets($file)) !== false) {
-				list($left, $right) = explode("=", $line);
-				print("<tr><td>$left</td><td>$right</td></tr>");
-			}
-			
-			fclose($file);
-		?>
+		<?php print(file_to_table("template/notes/chemistry/acidsandbases.txt")); ?>
 	</table>
 	<footer class="box">
-		<center><a href="../index.html">Home</a></center>
+		<center><a href="../../index.html">Home</a></center>
 	</footer>
 </body>

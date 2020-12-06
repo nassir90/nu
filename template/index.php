@@ -65,9 +65,14 @@
 		<button class="inner-box" onclick="append_card()" id="append-button">Add</button>
 		
 		<h1>Notes</h1>
+		<h4>Chemistry</h4>
 		<ul>
 			<li><a href="notes/chemistry/acidsandbases.html">acids and bases</a></li>
-			<li><a href="notes/irish/caitlinmaude.html"</li></ul>
+		</ul>
+		<h4>Irish</h4>
+		<ul>
+			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude <small>(poetry)</small></a></li>
+		</ul>
 	</section>
 
 	<section class="box">

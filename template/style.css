@@ -39,3 +39,11 @@ table {
 	height: 150px;
 	width: 50%;
 }
+/* consider khaki and wheat */
+h1 {
+	border: 5px shadow olive;
+}
+
+h1, h4 {
+	text-align: center;
+}
