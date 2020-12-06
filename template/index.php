@@ -61,7 +61,7 @@
 		</ol>
 		
 		<h1>Flash cards <small>(wip)</small></h1>
-		<noscript>Note: This won't work as you have javascript disabled</noscript>
+		<noscript>Note: This won't work if you have javascript disabled</noscript>
 		
 		<h4>Card bay</h4>
 		<table class="row">
@@ -69,7 +69,7 @@
 			<td><button id="right" onclick="toggle_blur('right')">N/A</td>
 		</table>
 		
-		<h4>Change deck / card</h4>
+		<h4>Change deck/card</h4>
 		<div class="row">
 			<table id="card_selector">
 				<?php
@@ -105,13 +105,18 @@
 	</section>
 
 	<footer>
-		<h1>Links to other pages</h1>
+		<h1>Secondary school related links</h1>
 		<ul>
-			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
-			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
 			<li><a href="https://www.theleavingcert.com/exam-papers/">Leaving cert exam papers</a></li>
 			<li><a href="http://shakespeare.mit.edu/lear/">King Lear play <small>(old english)</small></a></li>
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
+			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
+		</ul>
+		<h1>Other links</h1>
+		<ul>
+			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
+			<li><a href="https://1lib.eu">Free books</a></li>
+			<li><a href="https://www.corbettreport.com/">Commentary on world events</a></li>
 		</ul>
 	</footer>
 </body>
