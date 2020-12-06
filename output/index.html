@@ -59,22 +59,30 @@
 		</table>
 		
 		<section class="card-row">
-		<table style="width:100%" id="card-selector">
-			<tr><td><button data-card="Arrhenious' definition of an acid=A substance that dissociates in water to produce hydrogen ions
-" class='inner-button' id="flashcard0" onclick="change_card('flashcard0')">Arrhenious' definition of an acid</button></td></tr><tr><td><button data-card="Arrhenious' definition of a base=A substance that dissociates in water to produce hydroxide ions
-" class='inner-button' id="flashcard1" onclick="change_card('flashcard1')">Arrhenious' definition of a base</button></td></tr><tr><td><button data-card="Oxonium ion=H³O⁺
-" class='inner-button' id="flashcard2" onclick="change_card('flashcard2')">Oxonium ion</button></td></tr>		</table>
+		<table id="card-selector">
+			<tr><td><button data-card="Red litmus paper=Indication of an acid
+" class='inner-button' id="flashcard0" onclick="change_card('flashcard0')">Red litmus paper</button></td></tr><tr><td><button data-card="X-basic acid=An acid that dissociates to produce X H⁺ ions in water
+" class='inner-button' id="flashcard1" onclick="change_card('flashcard1')">X-basic acid</button></td></tr><tr><td><button data-card="Triprotic acid=Tribasic acid, such as H3PO4
+" class='inner-button' id="flashcard2" onclick="change_card('flashcard2')">Triprotic acid</button></td></tr><tr><td><button data-card="Arrhenious' definition of an acid=A substance that dissociates in water to produce H⁺ ions
+" class='inner-button' id="flashcard3" onclick="change_card('flashcard3')">Arrhenious' definition of an acid</button></td></tr><tr><td><button data-card="Arrhenious' definition of a base=A substance that dissociates in water to produce OH¯ ions
+" class='inner-button' id="flashcard4" onclick="change_card('flashcard4')">Arrhenious' definition of a base</button></td></tr><tr><td><button data-card="Oxonium ion=H³O⁺
+" class='inner-button' id="flashcard5" onclick="change_card('flashcard5')">Oxonium ion</button></td></tr>		</table>
 		</section>
 		
-		<textarea class="inner-box" style="width:36%; height:5em" id="left-entry"></textarea>
-		<textarea class="inner-box" style="width:36%; height:5em" id="right-entry"></textarea>
+		<table>
+			<td><textarea class="inner-button" id="left-entry"></textarea></td>
+			<td><textarea class="inner-button" id="right-entry"></textarea></td>
+		</table>
+		
 		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
 		
 		<h1>Notes</h1>
+		
 		<h4>Chemistry</h4>
 		<ul>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
 		</ul>
+		
 		<h4>Irish</h4>
 		<ul>
 			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude <small>(poetry)</small></a></li>

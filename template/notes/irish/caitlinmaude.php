@@ -21,7 +21,7 @@
 		<h1>Géibheann</h1>
 		<h4>Vocabulary</h4>
 		<table>
-		<?php print(file_to_table("template/notes/irish/caitlinmaude_geibheann_vocabulary.txt"));?>
+			<?php print(file_to_table("template/notes/irish/caitlinmaude_geibheann_vocabulary.txt"));?>
 		</table>
 	</section>
 	

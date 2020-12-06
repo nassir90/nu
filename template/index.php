@@ -59,7 +59,7 @@
 		</table>
 		
 		<section class="card-row">
-		<table style="width:100%" id="card-selector">
+		<table id="card-selector">
 			<?php
 				chdir("template");
 				$file = fopen("notes/chemistry/acidsandbases.txt", "r") or die();
@@ -79,15 +79,20 @@
 		</table>
 		</section>
 		
-		<textarea class="inner-box" style="width:36%; height:5em" id="left-entry"></textarea>
-		<textarea class="inner-box" style="width:36%; height:5em" id="right-entry"></textarea>
+		<table>
+			<td><textarea class="inner-button" id="left-entry"></textarea></td>
+			<td><textarea class="inner-button" id="right-entry"></textarea></td>
+		</table>
+		
 		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
 		
 		<h1>Notes</h1>
+		
 		<h4>Chemistry</h4>
 		<ul>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
 		</ul>
+		
 		<h4>Irish</h4>
 		<ul>
 			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude <small>(poetry)</small></a></li>

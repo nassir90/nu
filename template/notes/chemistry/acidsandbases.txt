@@ -1,3 +1,6 @@
-Arrhenious' definition of an acid=A substance that dissociates in water to produce hydrogen ions
-Arrhenious' definition of a base=A substance that dissociates in water to produce hydroxide ions
+Red litmus paper=Indication of an acid
+X-basic acid=An acid that dissociates to produce X H⁺ ions in water
+Triprotic acid=Tribasic acid, such as H3PO4
+Arrhenious' definition of an acid=A substance that dissociates in water to produce H⁺ ions
+Arrhenious' definition of a base=A substance that dissociates in water to produce OH¯ ions
 Oxonium ion=H³O⁺

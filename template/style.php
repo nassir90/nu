@@ -9,9 +9,13 @@
  */
 
 
-body {
+body, td, .inner-box{
 	background-color: <?=$dark_green?>;
 	color: <?=$light_green?>;
+}
+
+.inner-box, td {
+	border: 5px inset <?=$dark_green?>;
 }
 
 .box {
@@ -21,12 +25,6 @@ body {
 	margin: 1%;
 }
 
-.inner-box, td {
-	background-color: <?=$dark_green?>;
-	color: <?=$light_green?>;
-	border: 5px inset <?=$dark_green?>;
-}
-
 .inner-button {
 	background-color: inherit;
 	color: inherit;
@@ -34,12 +32,12 @@ body {
 }
 
 .card-row {
-	width: 75%;
 	height: 150px;
 	overflow: auto;
 }
 
 textarea {
+	width: 100%;
 	resize: none;
 }
 
@@ -47,4 +45,3 @@ table {
 	table-layout: fixed;
 	width: 100%;
 }
-/* consider khaki and wheat (for white) */
