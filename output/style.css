@@ -1,5 +1,5 @@
 /*
- * The padding is a nightmare. I apologise if you have OCD.
+ * The spacing is a nightmare. I apologise if you have OCD.
  */
 
 
@@ -19,7 +19,7 @@ body {
 .inner-box, td {
 	background-color: hsl(130, 100%, 10%);
 	color: hsl(130, 100%, 40%);
-	border: 5px inset hsl(130, 100%, 10%);
+	border: 5px outset hsl(130, 100%, 10%);
 }
 
 .inner-button {
@@ -28,20 +28,18 @@ body {
 	border: 0px;
 }
 
-table {
-	table-layout: fixed;
-	width: 100%;
-}
-
-.card-selector {
+.card-row {
 	width: 75%;
 	height: 150px;
 	overflow: auto;
 }
 
-.card-bay {
-	/*float: left;*/
-	height: 150px;
-	width: 75%;
+textarea {
+	resize: none;
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;
 }
 /* consider khaki and wheat (for white) */

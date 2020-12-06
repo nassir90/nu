@@ -53,14 +53,14 @@
 		</ol>
 		
 		<h1>Flash cards <small>(wip)</small></h1>
-		<table class="card-bay">
+		<table class="card-row">
 			<tr>
 				<td id="left_text">N/A</td>
 				<td id="right_text">N/A</td>
 			</tr>
 		</table>
 		
-		<section class="card-selector">
+		<section class="card-row">
 		<table style="width:100%" id="card-selector">
 			<?php
 				chdir("template");
@@ -81,8 +81,8 @@
 		</table>
 		</section>
 		
-		<textarea class="inner-box" style="width:23%; height:5em" id="left-entry"></textarea>
-		<textarea class="inner-box" style="width:23%; height:5em" id="right-entry"></textarea>
+		<textarea class="inner-box" style="width:36%; height:5em" id="left-entry"></textarea>
+		<textarea class="inner-box" style="width:36%; height:5em" id="right-entry"></textarea>
 		<button class="inner-box" onclick="append_card()" id="append-button" style="display:block">Add</button>
 		
 		<h1>Notes</h1>
