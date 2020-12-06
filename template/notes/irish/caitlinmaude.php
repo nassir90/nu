@@ -14,6 +14,7 @@
 		<h1>Caitlín Maude</h1>
 	</header>
 	<section class="box">
+		<h1>Cúlra an fhile</h1>
 		<table>
 			<?php print(file_to_table("template/notes/irish/caitlinmaude_background.txt")); ?>
 		</table>
