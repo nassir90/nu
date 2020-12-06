@@ -1,7 +1,7 @@
 <?php
-	$dark_green = "hsl(130, 100%, 10%)";
-	$base_green = "hsl(130, 100%, 30%)";
-	$light_green = "hsl(130, 100%, 40%)";
+	$dark_green = "hsl(50, 100%, 10%)";
+	$base_green = "hsl(50, 100%, 30%)";
+	$light_green = "hsl(50, 100%, 40%)";
 ?>
 
 /*
@@ -14,7 +14,7 @@ body, td, .inner-box{
 	color: <?=$light_green?>;
 }
 
-.inner-box, td {
+td, .inner-box {
 	border: 7px inset <?=$dark_green?>;
 }
 

@@ -1,6 +1,6 @@
-Daoirse=Opression
-Fuinniúil=Energetic
-Na teochrasa=The tropics
-Dual dó=Natural to him
-Sáraithe (from sarú)=Defeated
-In ísle brí=Depressed
+Daoirse = Opression
+Fuinniúil = Energetic
+Na teochrasa = The tropics
+Dual dó = Natural to him
+Sáraithe (from sarú) = Defeated
+In ísle brí = Depressed
