@@ -7,34 +7,27 @@
 	
 	<script>
 	
-	function blur_element(id) {
-		document.getElementById(id).setAttribute("style", "filter:blur(3px)");
-	}
-	
-	function unblur_element(id) {
-		document.getElementById(id).setAttribute("style", "filter:none");
-	}
-	
-	window.onkeydown = function(e) {
-		if (e.keyCode == 65) {
-			blur_element("left_text");
-		} else if (e.keyCode == 68) {
-			blur_element("right_text");
+	function toggle_blur(id) {
+		var style = document.getElementById(id).style;
+		if (style.filter == "none") {
+			style.filter = "blur(3px)";
+		} else {
+			style.filter = "none";
 		}
 	}
 	
 	window.onkeyup = function(e) {
 		if (e.keyCode == 65) {
-			unblur_element("left_text");
+			toggle_blur("left");
 		} else if (e.keyCode == 68) {
-			unblur_element("right_text");
+			toggle_blur("right");
 		}
 	}
 	
 	function update_card_bay(button) {
 		var parts = button.getAttribute("data-card").split("=");
-		document.getElementById("left_text").innerHTML = parts[0];
-		document.getElementById("right_text").innerHTML = parts[1];
+		document.getElementById("left").innerHTML = parts[0];
+		document.getElementById("right").innerHTML = parts[1];
 	}
 	
 	function add_card() {
@@ -46,7 +39,7 @@
 		// genesis 6:5
 		if (!(l.length && r.length)) return;
 		
-		document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";;
+		document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";
 		left_entry.value = "";
 		right_entry.value = "";
 	}
@@ -55,9 +48,9 @@
 </head>
 
 <body>
-	<h1 class="box">Naza's website</h1>
+	<header>Naza's website</header>
 
-	<section class="box">
+	<section>
 		<h1>Languages used to make this page <small>(in order of quality)</small></h1>
 		<ol>
 			<li>PHP</li>
@@ -72,12 +65,12 @@
 		
 		<h4>Card bay</h4>
 		<table class="row">
-			<td id="left_text">N/A</td>
-			<td id="right_text">N/A</td>
+			<td><button id="left" onclick="toggle_blur('left')">N/A</td>
+			<td><button id="right" onclick="toggle_blur('right')">N/A</td>
 		</table>
 		
 		<h4>Change deck / card</h4>
-		<section class="row">
+		<div class="row">
 			<table id="card_selector">
 				<?php
 					$file = fopen("template/notes/chemistry/acidsandbases.txt", "r") or die();
@@ -85,25 +78,18 @@
 					while(($line = fgets($file)) !== false) {
 						list($left, $right) = explode("=", $line);
 						
+						# Apparently, it's bad practice to store application state in the DOM
 						print("<tr><td><button data-card=\"$left=$right\" onclick=\"update_card_bay(this)\">$left</button></td></tr>");
 					}
 					
 					fclose($file);
 				?>
 			</table>
-		</section>
+		</div>
 		<table>
 			<td><textarea id="left_entry">Question...</textarea></td>
 			<td><textarea id="right_entry">Answer...</textarea></td>
 			<td><button onclick="add_card()">Add</button></td>
-		</table>
-		
-		<h4>Study</h4>
-		<table>
-			<td><button>Next (Enter)</button></td>
-			<td><button onclick="blur_element('left_text')">Hide Left (A)</button></td>
-			<td><button onclick="blur_element('right_text')">Hide Right (B)</button></td>
-			<td><button onclick="unblur_element('left_text'); unblur_element('right_text')">Show Both</button></td>
 		</table>
 		
 		<h1>Notes</h1>
@@ -118,7 +104,7 @@
 		</ul>
 	</section>
 
-	<footer class="box">
+	<footer>
 		<h1>Links to other pages</h1>
 		<ul>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>

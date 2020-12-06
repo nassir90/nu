@@ -9,9 +9,9 @@
 </head>
 
 <body>
-	<h1 class="box">Caitlín Maude</h1>
+	<header>Caitlín Maude</header>
 	
-	<section class="box">
+	<section>
 		<h1>Cúlra an fhile</h1>
 		<?php print(file_to_table("template/notes/irish/caitlinmaude_background.txt")); ?>
 		
@@ -23,5 +23,5 @@
 		<p>Feicimid dhá íomhanna sa dán seo: íomhá an anmhí san áit a bhí dual dó, agus íomhá an ainmhí i zú.</p>
 	</section>
 	
-	<center class="box"><a href="../../index.html">Home</a></center>
+	<footer><a href="../../index.html">Home</a></footer>
 </body>

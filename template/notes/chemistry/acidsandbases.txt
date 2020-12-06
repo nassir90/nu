@@ -4,3 +4,4 @@ Triprotic acid = Tribasic acid, such as H3PO4
 Arrhenious' definition of an acid = A substance that dissociates in water to produce H+ ions
 Arrhenious' definition of a base = A substance that dissociates in water to produce OH- ions
 Oxonium ion = H3O+
+Dative covalent bond = One where both electrons come from the same atom
