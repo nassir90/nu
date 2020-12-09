@@ -3,16 +3,18 @@ $dark = "hsl(50, 100%, 10%)";
 $base = "hsl(50, 100%, 30%)";
 $light = "hsl(50, 100%, 40%)";
 ?>
-body {
-	background-color: <?=$dark?>;
-	color: <?=$light?>;
-}
 
 /*The only textareas used are inside <td> elements, so I want them to integrate properly */
 textarea {
 	width: 90%;
 	resize: none;
 }
+
+body {
+	background-color: <?=$dark?>;
+	color: <?=$light?>;
+}
+
 /*Normally, the side of <td> tags varies depending on the contents. I don't want this. The default behavior of table.width is to take up only the amount of space the table needs, but I want the table to fill the page horizonatally*/ table {
 	width: 100%;
 	table-layout: fixed;

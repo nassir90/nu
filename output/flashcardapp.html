@@ -50,7 +50,7 @@
 <body>
 	<header>Flash card app <small>(wip)</small></header>
 	<section>
-		
+		<noscript><strong>Your client can't run javascript. You're probably better off to be honest.</strong></noscript>
 		<h4>Card bay</h4>
 		<table style="height: 150px">
 			<td><button id="left" onclick="toggle_blur('left')">N/A</td>
