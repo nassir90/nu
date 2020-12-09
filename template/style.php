@@ -7,6 +7,7 @@ body {
 	background-color: <?=$dark?>;
 	color: <?=$light?>;
 }
+
 /*The only textareas used are inside <td> elements, so I want them to integrate properly */
 textarea {
 	width: 90%;
@@ -48,11 +49,6 @@ td button, td textarea {
 	border: 0px;
 }
 
-.row { 
-	height: 150px;
-	overflow: auto;
-}
-
 a {
 	color: inherit
-}n
+}
