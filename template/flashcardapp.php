@@ -38,7 +38,11 @@
 		// genesis 6:5
 		if (!(l.length && r.length)) return;
 		
-		document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";
+		if (l == "Break" && r == "Out") {
+			document.getElementById("card_selector").innerHTML += "<tr><td><a href='outthere/breakout.html'><b>BREAK OUT</b></a></td></tr>";
+		} else {
+			document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";
+		}
 		left_entry.value = "";
 		right_entry.value = "";
 	}
