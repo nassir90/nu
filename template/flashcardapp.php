@@ -52,7 +52,7 @@
 </head>
 
 <body>
-	<header>Flash card app <small>(wip)</small></header>
+	<header><h1>Flash card app</h1></header>
 	<section>
 		<noscript><strong>Your client can't run javascript. You're probably better off to be honest.</strong></noscript>
 		<h4>Card bay</h4>

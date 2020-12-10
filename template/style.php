@@ -29,8 +29,6 @@ section {
 
 header {
 	text-align: center;
-	font-size: xx-large;
-	font-weight: bold;
 	margin: 2%;
 }
 

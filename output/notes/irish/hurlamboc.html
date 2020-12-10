@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-	<header>Hurlamboc</header>
+	<header><h1>Hurlamboc</h1></header>
 	<section>
 	
 	

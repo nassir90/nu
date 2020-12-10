@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<header>Break out</header>
+	<header><h1>Break out</h1> (or go deeper, depending on who you ask)</header>
 	<section>
 	
 	<center><p><em>"Jack of all trades, master of none, but <b>better</b> than master of one"</em></p></center>

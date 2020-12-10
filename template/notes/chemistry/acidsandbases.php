@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<header>Acids and bases</header>
+	<header><h1>Acids and bases</h1></header>
 	
 	<section>
 	<?php print(file_to_table("template/notes/chemistry/acidsandbases.txt")); ?>

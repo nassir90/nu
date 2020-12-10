@@ -9,13 +9,13 @@
 </head>
 
 <body>
-	<header>Caitlín Maude</header>
+	<header><h1>Caitlín Maude</h1></header>
 	
 	<section>
-		<h1>Cúlra an fhile</h1>
+		<h2>Cúlra an fhile</h2>
 		<?php print(file_to_table("template/notes/irish/caitlinmaude_background.txt")); ?>
 		
-		<h1>Géibheann</h1>
+		<h2>Géibheann</h2>
 		<h4>Vocabulary</h4>
 		<?php print(file_to_table("template/notes/irish/caitlinmaude_geibheann_vocabulary.txt"));?>
 		

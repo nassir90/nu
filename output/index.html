@@ -7,10 +7,10 @@
 </head>
 
 <body>
-	<header>Naza's website</header>
+	<header><h1>Naza's website</h1></header>
 
 	<section>
-		<h1>Languages used to make this page, in order of quality</h1>
+		<h2>Languages used to make this page, in order of quality</h2>
 		<ol>
 			<li>PHP</li>
 			<li>CSS</li>
@@ -19,12 +19,12 @@
 			<li>Javascript</li>
 		</ol>
 		
-		<h1>On this site</h1>
+		<h2>On this site</h2>
 		<ul>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
 		</ul>
 		
-		<h1>Notes</h1>
+		<h2>Notes</h2>
 		<h4>Chemistry</h4>
 		<ul>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
@@ -37,14 +37,14 @@
 		</ul>
 	</section>
 	<footer>
-		<h1>School related links</h1>
+		<h2>School related links</h2>
 		<ul>
 			<li><a href="https://www.theleavingcert.com/exam-papers/">Leaving cert exam papers</a></li>
 			<li><a href="http://shakespeare.mit.edu/lear/">King Lear play <small>(old english)</small></a></li>
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 		</ul>
-		<h1>Other links</h1>
+		<h2>Other links</h2>
 		<ul>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
 			<li><a href="https://1lib.eu">Free books</a></li>
