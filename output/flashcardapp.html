@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Flash card app</title>
+	<link rel="stylesheet" href="style.css">
+	
+	<script>
+	
+	function toggle_blur(id) {
+		var style = document.getElementById(id).style;
+		if (style.filter == "none") {
+			style.filter = "blur(3px)";
+		} else {
+			style.filter = "none";
+		}
+	}
+	
+	window.onkeyup = function(e) {
+		if (e.keyCode == 65) {
+			toggle_blur("left");
+		} else if (e.keyCode == 68) {
+			toggle_blur("right");
+		}
+	}
+	
+	function update_card_bay(button) {
+		var parts = button.getAttribute("data-card").split("=");
+		document.getElementById("left").innerHTML = parts[0];
+		document.getElementById("right").innerHTML = parts[1];
+	}
+	
+	function add_card() {
+		var left_entry = document.getElementById("left_entry");
+		var right_entry = document.getElementById("right_entry");
+		var l = left_entry.value.trim();
+		var r = right_entry.value.trim();
+		
+		// genesis 6:5
+		if (!(l.length && r.length)) return;
+		
+		if (l == "Break" && r == "Out") {
+			document.getElementById("card_selector").innerHTML += "<tr><td><a href='outthere/breakout.html'><b>BREAK OUT</b></a></td></tr>";
+		} else {
+			document.getElementById("card_selector").innerHTML += "<tr><td><button data-card=\""+ l + "=" + r + "\" onclick=\"update_card_bay(this)\">" + l + "</button></td></tr>";
+		}
+		left_entry.value = "";
+		right_entry.value = "";
+	}
+	
+	</script>
+
+</head>
+
+<body>
+	<header><h1>Flash card app</h1></header>
+	<section>
+		<noscript><strong>Your client can't run javascript. You're probably better off to be honest.</strong></noscript>
+		<h4>Card bay</h4>
+		<table style="height: 150px">
+			<td><button id="left" onclick="toggle_blur('left')">N/A</td>
+			<td><button id="right" onclick="toggle_blur('right')">N/A</td>
+		</table>
+		
+		<h4>Change deck/card</h4>
+		<div style="height: 200px; overflow: auto">
+			<table id="card_selector">
+				
+<tr><td><button data-card="Red litmus paper = Indication of an acid
+" onclick="update_card_bay(this)">Red litmus paper </button></td></tr>
+<tr><td><button data-card="X-basic acid = An acid that dissociates to produce X H+ ions in water
+" onclick="update_card_bay(this)">X-basic acid </button></td></tr>
+<tr><td><button data-card="Triprotic acid = Tribasic acid, such as H3PO4
+" onclick="update_card_bay(this)">Triprotic acid </button></td></tr>
+<tr><td><button data-card="Arrhenious' definition of an acid = A substance that dissociates in water to produce H+ ions
+" onclick="update_card_bay(this)">Arrhenious' definition of an acid </button></td></tr>
+<tr><td><button data-card="Arrhenious' definition of a base = A substance that dissociates in water to produce OH- ions
+" onclick="update_card_bay(this)">Arrhenious' definition of a base </button></td></tr>
+<tr><td><button data-card="Oxonium ion = H3O+
+" onclick="update_card_bay(this)">Oxonium ion </button></td></tr>
+<tr><td><button data-card="Dative covalent bond = One where both electrons come from the same atom
+" onclick="update_card_bay(this)">Dative covalent bond </button></td></tr>			</table>
+		</div>
+		<table>
+			<td><textarea id="left_entry">Question...</textarea></td>
+			<td><textarea id="right_entry">Answer...</textarea></td>
+			<td><button onclick="add_card()">Add</button></td>
+		</table>
+		
+	</section>
+	<footer><a href="index.html">Home</a></footer>
+</body>
