@@ -23,7 +23,7 @@ body {
 section { 
 	background-color: <?=$light?>;
 	color: <?=$dark?>;
-	border: 7px outset <?=$light?>;
+	border: 9px outset <?=$light?>;
 	margin: 2%;
 }
 
@@ -40,7 +40,7 @@ footer {
 td, button {
 	background-color: <?=$dark?>;
 	color: <?=$light?>;
-	border: 10px inset <?=$dark?>;
+	border: 3px inset <?=$dark?>;
 }
 
 td button, td textarea {

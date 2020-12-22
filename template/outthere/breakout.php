@@ -2,29 +2,38 @@
 
 <head>
 	<title>Break out</title>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../simple.css">
 	<meta charset="utf-8">
+	
+	<!--
+		Thesis: By focusing all your effort into one area of life, you delude yourself into thinking that that is the only worthwhile activity, and deprive yourself of other sources of fulfillment or contentment. It's for this reason that having multiple side hobies is a good idea.
+		Supporting points to be presented: You'll never know whether or not you'll enjoy something until you've tried it. The more you learn, the more the world makes sense - the feeling of becoming more intellegent is satisfying.
+		Opposing points to be dealt with: I'm already happy. I am philosophically opposed to the idea of self improvement.
+		Conclusion to be reasoned towards: Learn to cook, read latin or exposes
+	!-->
+	
 </head>
+
 <body>
-	<header><h1>Break out</h1> (or go deeper, depending on who you ask)</header>
-	<section>
+	<h1>Break out <small>(or go deeper, depending on who you ask)</small></h1> 
 	
 	<center><p><em>"Jack of all trades, master of none, but <b>better</b> than master of one"</em></p></center>
 	
-	<p>I want to address the (few) tech nerds out there who identify with their usage of technology. If you would commit to your git repositiory before committing to a sleep schedule, then this is the article for you! Hopefully after reading through my uneducated musings, you'll have the motivation to do something non-techy, though, I can't promise anything. I'll talk about why anybody would want to sacrifice technology and what steps you can take after deciding that the switch has merit.</p>
+	<p>By putting all of your focus into a minute area of life, you delude yourself into thinking that it's the only worthwhile activity and deprive yourself of other sources of contentment. It's for this reason that I've prefaced my argument with the old proverb that you see above. I think that it's true.</p>
 	
-	<h4>But I love using computers. NO! You can't take them away from me! NOOOO—</h4>
-	<p>Shh shh. O ye of little faith. Your defensive mechanisms activate at the mere prospect of relinquishing your techy identity. Too much skin in the game eh? Do you value yourself based on how much knowledge you've let pass through those glass windows? Perhaps, had all this dissapeared, you'd see yourself as lacking, inadequate even. Of course, <a href="https://www.youtube.com/watch?v=I6_GvT42IW0">it's not like the electrical grid is at risk of being annihilated or anything</a>, so what's my point?</p>
+	<p>There are so many "sources of information" in the world to keep you learning for long time. Even in specific domains, it's likely that you'll find a plethora of styles, techniques and schools of thought. With each new branch learned, the domain begins to make more sense. In fact, there are domains in which the information you learn is inferrential, so your knowledge on the subject can seep into other parts of life.</p>
 	
-	<h4>What is your point? To each their own, right?</h4>
-	<p>At the most fundamental level, if you pass the time you have each day doing this one thing - you'll never reach your full potential. Being well versed in computers and engineering, it's likely that you're not a social media zombie: withtout a doubt, your dedication is to be commended. The problem is investing all of that energy into one area. When you start trying new things: learning history, cooking, gardening, woodworking, playing sports .etc, you'll realise that that enjoyment that you were seeking in code could also be found in so many different areas of life.</p>
+	<p>Perhaps your domain is programming. Hell, perhaps you're obsessed with <b>just one</b> programming language. In this case, a path is already set up for you. For a programmer as such, the next logical step is to learn another programming language! As you learn more languages and tools, you'll reach a point where you're not just a programmer but a system administrator. As you go up the domain, things that were seemingly unrelated to the branch you began with may seem attractive. Maybe you'll move from windows to linux. Maybe linux will make you adopt a more minimalist philopophy. Maybe you'll start a garden. The point is: expanding your skills an abilities can take you places. That's  a fact</p>
 	
-	<h4>I don't know. That sounds pretty cliché. I'm happy, and this "full potential" thing is too etheral to be considered by my rational brain.</h4>
-	<p>Ok, heres where it gets tricky. Unless you've escaped from area-51, some semblance of satisfaction is what you'll naturally gravitate towards. You're essentially using tech to plug that hole: and what a fitting block technology is, with it's near unlimited possibilities. However, as I've said, you may also be ruining you sleep schedule (resulting in fights with the compiler), your back, and your eyes as well as your social prospects, not to mention, once again, that you're depriving yourself of other sources of fulfullment that may be as good, or even better than technology. Let me give you an example: <a href="https://www.youtube.com/watch?v=148r0UVQBxU">this man</a>. This guy is a wise in the ways of bits, just like you. But he's also expanded into so much other areas. He can cook, he has a garden and he engages in sports. All that on top of his programming prowess. Imagine going to sleep knowing that you've taken good care of your health, and eaten food that YOU grew in YOUR own garden! I'll tell ya, if I was living a life like that, not even c++ template errors could phase me.</p>
+	<p>The act of learning and expanding in this way is addictive, as I've implied. Education propagates itself, there's a reason why they say that the culmination of knowledge is knowing that you know nothing. The more you learn, the more questions you'll want to ask and the more areas of life that you'll want to expand to.</p>
 	
-	<h4>Alright, supposing I were to set out to become like this lad, how would I start</h4>
-	<p>Here's the great thing. It doesn't even take that much energy to start the shift. Here's a golden pice of advice: remove, don't add. What I mean by that is, rather than trying to fit a homemade 3 course meal at 12:01 AM after you finish tinkering, shave down your tinker time. You'll find yourself with more time on your hands, with which you can sleep (what better practice?), or, if you have enough energy (which you probably don't), go a ahead and break out! Make that meal! Plant those broad beans! 1v1 the local basketball legend. Go to sleep knowing that even if all the technology you've used were to be erased the next morning, the world would remain yours to explore and interact with.</p>
+	<p>The best thing about going on this path is that milk what yuh uhh. And em it's not that hard. As a rule of thumb: remove, don't add. Spend less time in that one area of life. You might realise that you're sleep deprived, and that no change can occur when you're in such a state. After sleeping, you may have the energy to start doing something else. It's that easy.</p>
 	
-	</section>
-	<footer><a href="../index.html">Home</a></footer>
+	<p>Maybe your still not sold. Perhaps you're already happy. In that case ignore this article. If the benefits don't seem worth sacrificing the domain you specialise in, by all means stay put. The door is always open. In fact, maybe you're philosophically opposed to any form of self improvement. At one point I'll write an article for you lot, but untill then, adios.</p>
+	
+	<p><small>(P.S. don't read self help books. Or more articles like this one. Get in quick and get out. There's a book called "Help Me!" that talks about a woman that fell into this trap)</small></p>
+	
+	<hr>
+	
+	<a href="../index.html">Home</a>
 </body>

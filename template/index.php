@@ -9,6 +9,8 @@
 <body>
 	<header><h1>Naza's website</h1></header>
 
+	<center><p><em>"Words cannot guarantee their truth content, rather, they assemble a context in which the question, "Is this true or false?" is relevant" - Niel Postman in <a href="media/postman-amusing.pdf">"amusing ourselves to death"</a></em></p></center>
+
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
 		<ol>
@@ -22,6 +24,12 @@
 		<h2>On this site</h2>
 		<ul>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
+		</ul>
+		
+		<h4>Uneducated musings / Dangerous ideas</h4>
+		<ul>
+			<li><a href="outthere/sales.html">The pandemic protection superstition</a></li>
+			<li><a href="outthere/breakout.html">Git gud, have fun</a></li>
 		</ul>
 		
 		<h2>Notes</h2>
