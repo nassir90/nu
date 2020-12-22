@@ -1,4 +1,4 @@
-php: folders
+php: folders media
 	php ./template/index.php > ./output/index.html
 	php ./template/flashcardapp.php > ./output/flashcardapp.html
 	php ./template/notes/
@@ -11,6 +11,9 @@ php: folders
 	php ./template/outthere/sales.php > ./output/outthere/sales.html
 	php ./template/outthere/message-vol.php > ./output/outthere/message-vol.html
 	cp ./template/outthere/MiltonJRosenau.txt ./output/outthere/MiltonJRosenau.txt
+	
+media:
+	cp ./template/media ./output/ -R
 
 folders:
 	mkdir -p ./output

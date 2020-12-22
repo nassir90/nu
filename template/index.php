@@ -9,7 +9,7 @@
 <body>
 	<header><h1>Naza's website</h1></header>
 
-	<center><p><em>"Words cannot guarantee their truth content, rather, they assemble a context in which the question, "Is this true or false?" is relevant" - Niel Postman in <a href="media/postman-amusing.pdf">"amusing ourselves to death"</a></em></p></center>
+	<center><p><em>"Words cannot guarantee their truth content, rather, they assemble a context in which the question, 'Is this true or false?' is relevant" - Niel Postman in <a href="media/postman-amusing.epub">"amusing ourselves to death"</a></em></p></center>
 
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
@@ -55,7 +55,7 @@
 		<h2>Other links</h2>
 		<ul>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a href="https://1lib.eu">Free books</a></li>
+			<li><a href="https://1lib.eu">Free books</a> - <a href="https://thelatinlibrary.com/">Free latin texts</a></li>
 			<li><a href="https://wttr.in">Instant weather</a></li>
 			<li><a href="https://www.corbettreport.com/">Commentary on world events</a></li>
 		</ul>
