@@ -15,8 +15,6 @@
 <body>
 	<h1>The pandemic protection superstition</h1>
 	
-	<hr>
-	
 	<p>Let me elaborate on why I've decided to call this carry on supersticious. The dictum of "stay home and protect each other" derives its meaning from the basic presumption that these "viruses" cause disease. This is what is meant by contagion, though contagion also refers to the spread of disease by means of pathogenic bacteria. This theory of infection via germs is wrong. Experiments have been done that show that the mode of spread of disease isn't through microorganisms. </p>
 	
 	<p>One such study was done in the 1910s, when the spanish flu was ravaging the USA. A doctor by the name of Milton J. Rosenau wanted to prove that <em>Pfeiffer Bacillus</em> (a bacterium) was responsible for the disease. He carried out an experiment, in which he exposed healthy individuals to the breath, the sputum and even the blood of "infected" individuals. Not one of them fell ill [0]. Let's consider too tuberculosis. It's a known fact that there some billions of people on the face of planet earth harbouring the bacterium deemed responsible for TB. Are all of these people sick? No. Now, within the germ theory paradigm, stumped reasearchers chock this down to latent TB. The active cases of horrible pneumonia supposedly prove that TBB causes TB. However, from outside the germ theory paradigm, this deduction makes no sense. There are a multitude of other <b>proven and experimentally</b> tested (insofar as inhaling lead and developing health issues) means that diseases can arise.</p>
