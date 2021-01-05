@@ -24,12 +24,13 @@
 		<h2>On this site</h2>
 		<ul>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
+			<li><a href="physics/index.html">Physics notes and <strong>simulations</strong></a></li>
 		</ul>
 		
-		<h4>Uneducated musings / Dangerous ideas</h4>
+		<h4>Blog</h4>
 		<ul>
 			<li><a href="outthere/sales.html">The pandemic protection superstition</a></li>
-			<li><a href="outthere/breakout.html">Git gud, have fun</a></li>
+			<li><a href="outthere/breakout.html">Letter to myself</a></li>
 		</ul>
 		
 		<h2>Notes</h2>

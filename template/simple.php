@@ -1,8 +1,4 @@
-<?php
-$dark = "hsl(50, 100%, 10%)";
-$base = "hsl(50, 100%, 30%)";
-$light = "hsl(50, 100%, 40%)";
-?>
+<?php require("preprocessing/colors.php")?>
 
 body, a {
 	background: <?=$light?>;
