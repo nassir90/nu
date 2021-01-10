@@ -6,25 +6,26 @@
 	<title>Dropping a mass at different heights</title>
 	<script>
 		var mass_x = 40;
-		var mass_y = 10;
+		
+		var drop_height = 40;
+		var mass_y = drop_height;
 		var mass_velocity = 0;
 		var gravity = 9.8; // 10px = one meter
-		var initial = null;
+		var drop_time = null;
 		var context = null;
 		var canvas = null;
+		var counter = 0;
 		
 		function init() {
 			canvas = document.getElementById("canvas");
 			context = canvas.getContext("2d");
-			
+			context.fillStyle = "<?=$dark?>";
 			draw();
 		}
 		
 		function draw() {
 			context.clearRect(0, 0, canvas.width, canvas.height);
-			context.fillStyle = "black";
 			context.fillRect(mass_x, mass_y, 20, 20);
-			
 			
 			for (i=300; i > 0; i-=10) {
 				context.beginPath();
@@ -33,45 +34,63 @@
 				context.stroke();
 				
 				context.moveTo(0, i);
-				context.strokeText((300-i)/10+"m", 0, i);
+				context.fillText((300-i)/10+"m", 0, i);
 			}
 		}
 		
-		var timer = null;
-		
-		function loop() {
-			window.clearTimeout(timer);
-			
+		function fall() {
 			if (mass_y < 280) {
 				mass_velocity += 0.001 * gravity;
 				mass_y += mass_velocity;
-				timer = window.setTimeout(loop, 1);
+				window.setTimeout(fall, 1);
 			} else {
-				mass_y = 280;
-				document.getElementById("time_taken").innerHTML = ((new Date()).getTime() - initial.getTime()) + " milliseconds, 10 for every year";
+				results.innerHTML += "<tr><td>Drop #" + counter++ + "</td><td>" + (Date.now() - drop_time) + " milliseconds</td></tr>";
 			}
 			
 			draw();
 		}
 		
-		function start_loop() {
-			document.getElementById("lol").innerHTML = "Should have listened to Volataire";
-			initial = new Date();
-			loop();
+		function meters_to_pixels(meters) {
+			return Math.min(300, Math.max(0, 300 - meters*10));
+		}
+		
+		function update_drop_height() {
+			drop_height = meters_to_pixels(parseInt(new_mass_height.value) || drop_height);
+		}
+		
+		function reset_mass_properties() {
+			mass_y = drop_height;
+			mass_velocity = 0;
+		}
+		
+		function start_simulation() {
+			reset_mass_properties();
+			drop_time = Date.now();
+			fall();
 		}
 	</script>
 <head>
+	
 <body onload="init();">
 	<h1>Dropping a mass at different heights</h1>
-	<center><p><em>"Anyone who has the power to make you believe absurdities has the power to make you commit injustices" - Volataire</em></p></center>
+	<center><p><em>"s = ut + ½at²" - Einstein</em></p></center>
 	
-	<canvas id="canvas" width="200" height="300" style="border: 3px <?=$dark?> solid; float: left; margin: 10px;">For some reason, I guess for the ones with no javascript, you can put text in between canvas tags... Hello peasant <small>(you're probably better off)</small></canvas>
+	<canvas id="canvas" width="200" height="300" style="float: right;"><?readfile("preprocessing/peasant.txt");?></canvas>
 	
-	<h2>Description</h2>
-	<p>The box will lose most of its potential energy as kinetic energy, but air resistance should lessen the impact.</p>
-	<p>Grandad took part in making this experiment possible. Make him proud.</p>
-	<button id="lol" onclick="start_loop();">Drop box</button>
-	<p id="time_taken"></p>
+	<h2>Suggested use</h2>
+	<ul>
+		<li>Use the results collected to find gravity</li>
+	</ul>
+	<table>
+		<tr><td><button onclick="start_simulation();">Drop box</button></td><td><button onclick="reset_mass_properties(); draw();">Reset Simulation</button></td></tr>
+	</table>
+	<table>
+		<tr><td><button onclick="update_drop_height(); reset_mass_properties(); draw();">Change the drop height</button></td><td><textarea id="new_mass_height">40</textarea></td></tr>
+	</table>
+	
+	<h2>Results</h2>
+	<div style="overflow-y: auto; height: 150px;"><table style="width: 100%" id="results"></table></div>
+	
 	<hr>
 	
 	<a href="index.html">Back to index</a>

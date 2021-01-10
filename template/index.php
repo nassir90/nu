@@ -36,6 +36,7 @@
 		<h2>Notes</h2>
 		<h4>Chemistry</h4>
 		<ul>
+			<li><a href="chemistry/index.html">Simulations and other stuff</a></li>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
 		</ul>
 		

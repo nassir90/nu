@@ -7,11 +7,11 @@
 	<script>
 	
 	function toggle_blur(id) {
-		var style = document.getElementById(id).style;
-		if (style.filter == "none") {
-			style.filter = "blur(3px)";
+		var element = document.getElementById(id);
+		if (element.style.filter == "none") {
+			element.style.filter = "blur(3px)";
 		} else {
-			style.filter = "none";
+			element.style.filter = "none";
 		}
 	}
 	
