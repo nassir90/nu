@@ -24,17 +24,16 @@
 		<h2>On this site</h2>
 		<ul>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
+			<li><a href="outthere/index.html">Articles that are a bit out there</a></li>
+		</ul>
+		
+		<h2>Physics</h2>
+		<ul>
 			<li><a href="physics/index.html">Physics notes and <strong>simulations</strong></a></li>
 		</ul>
 		
-		<h4>Blog</h4>
-		<ul>
-			<li><a href="outthere/sales.html">The pandemic protection superstition</a></li>
-			<li><a href="outthere/breakout.html">Letter to myself</a></li>
-		</ul>
-		
 		<h2>Notes</h2>
-		<h4>Chemistry</h4>
+		<h3>Chemistry</h3>
 		<ul>
 			<li><a href="chemistry/index.html">Simulations and other stuff</a></li>
 			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
@@ -52,10 +51,11 @@
 			<li><a href="https://www.theleavingcert.com/exam-papers/">Leaving cert exam papers</a></li>
 			<li><a href="http://shakespeare.mit.edu/lear/">King Lear play <small>(old english)</small></a></li>
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
-			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
+			<li><a href="http://www.olabs.edu.in/">All the simulations you could ever want <small>(kinda uninspiring, iwl)</small></a></li>
 		</ul>
 		<h2>Other links</h2>
 		<ul>
+			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
 			<li><a href="https://1lib.eu">Free books</a> - <a href="https://thelatinlibrary.com/">Free latin texts</a></li>
 			<li><a href="https://wttr.in">Instant weather</a></li>

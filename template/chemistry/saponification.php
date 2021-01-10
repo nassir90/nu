@@ -17,6 +17,6 @@
 	
 	<hr>
 	
-	<a href="index.html">Back to index</a>
-	<a href="https://amrita.olabs.edu.in/?sub=73&brch=3&sim=119&cnt=4">Better version (kinda uninspiring iwl)</a>
+	<p><a href="index.html">Back to index</a></p>
+	<p><a href="https://amrita.olabs.edu.in/?sub=73&brch=3&sim=119&cnt=4">Better version</a> - Kinda uninspiring to see for a prospective programmer. Indians probably have quantum computers already, they just have to finish the youtube tutorials before they tell us.</p>
 </body>

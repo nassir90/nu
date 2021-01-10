@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
+
 <html>
 	<title>The COVID superstition</title>
 	<link rel="stylesheet" href="../simple.css">
-	<meta charset="utf-8">
 	
 	<!--
 		Thesis: Germ theory is wrong
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<h1>The pandemic protection superstition</h1>-
+	<h1>The pandemic protection superstition</h1>
 	
 	<p>Let me elaborate on why I've decided to call this carry on supersticious. The dictum of "stay home and protect each other" derives its meaning from the basic presumption that these "viruses" cause disease. This is what is meant by contagion, though contagion also refers to the spread of disease by means of pathogenic bacteria. This theory of infection via germs is wrong. Experiments have been done that show that the mode of spread of disease isn't through microorganisms. </p>
 	
@@ -35,12 +35,12 @@
 	
 	<p>Fun fact: In 1971, Nixon declared war on the viruses that cause cancer</p>
 	
-	<p>[0] <a href="https://www.gjenvick.com/Influenza/TheRosenauExperiment-1918-1919.html">On the mode of spread of Influenza</a> OR <a href="MiltonJRosenau.txt">local copy here</a></p>
+	<p>[0] <a href="https://www.gjenvick.com/Influenza/TheRosenauExperiment-1918-1919.html">On the mode of spread of Influenza</a> OR <a href="MiltonJRosenau.html">local copy here</a></p>
 	
 	<p>[1] <a href="https://tbfacts.org/latent-tb/">Latent tb</a></p>
 	
 	<p>[2] Which really wasn't his: read "Béchamp or Pasteur"</p>
 	
-	<a href="../index.html">Home</a>
+	<a href="index.html">Home</a>
 	
 </body>
