@@ -15,7 +15,7 @@
 	</section>
 	<footer>
 		<ul>
-			<li><a href="../index.html">Home</a></li>
+			<li><a href="index.html">Home</a></li>
 			<li><a href="http://mathsphysics.com/">Visit my guy Mr Foley</a>
 		</ul>
 	</footer>

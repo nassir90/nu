@@ -9,40 +9,29 @@
 <body>
 	<header><h1>Naza's website</h1></header>
 
-	<center><p><em>"Words cannot guarantee their truth content, rather, they assemble a context in which the question, 'Is this true or false?' is relevant" - Niel Postman in <a href="media/postman-amusing.epub">"amusing ourselves to death"</a></em></p></center>
-
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
 		<ol>
 			<li>PHP</li>
 			<li>CSS</li>
 			<li>HTML</li>
-			<li>...</li>
 			<li>Javascript</li>
 		</ol>
 		
-		<h2>On this site</h2>
+		<h2>School</h2>
+		<ul>
+			<li><a href="physics/index.html">Physics index</a></li>
+			<li><a href="chemistry/index.html">Chemistry index</a></li>
+			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases definitions</a></li>
+			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude</a></li>
+			<li><a href="notes/irish/hurlamboc.html">Hurlamboc</a></li>
+		</ul>
+		
+		<h2>Other</h2>
 		<ul>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
 			<li><a href="outthere/index.html">Articles that are a bit out there</a></li>
-		</ul>
-		
-		<h2>Physics</h2>
-		<ul>
-			<li><a href="physics/index.html">Physics notes and <strong>simulations</strong></a></li>
-		</ul>
-		
-		<h2>Notes</h2>
-		<h3>Chemistry</h3>
-		<ul>
-			<li><a href="chemistry/index.html">Simulations and other stuff</a></li>
-			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases</a></li>
-		</ul>
-		
-		<h4>Irish</h4>
-		<ul>
-			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude</a></li>
-			<li><a href="notes/irish/hurlamboc.html">Hurlamboc</a></li>
+			<li><a href="https://nazalvfv.000webhostapp.com/">Secure version of this site</a></li>
 		</ul>
 	</section>
 	<footer>
@@ -55,11 +44,16 @@
 		</ul>
 		<h2>Other links</h2>
 		<ul>
+			<li><a href="media/postman-amusing.epub">Amusing ourselves to death by Niel Postman</a></li>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
 			<li><a href="https://1lib.eu">Free books</a> - <a href="https://thelatinlibrary.com/">Free latin texts</a></li>
 			<li><a href="https://wttr.in">Instant weather</a></li>
 			<li><a href="https://www.corbettreport.com/">Commentary on world events</a></li>
 		</ul>
+		
+		<hr>
+		
+		<p>This website is hosted with <a href="https://www.000webhost.com/">000webhost</a>, but there's no banner to be seen. How did I do this? <a href="media/crime.png">find out!</a></p>
 	</footer>
 </body>

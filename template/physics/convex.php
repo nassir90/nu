@@ -151,7 +151,7 @@
 <body onload="init();">
 	<h1>Finding out the properties of a convex lens</h1>
 	
-	<div style="float: right; width: 300px; margin-left: 20px;">
+	<section style="float: right; width: 300px; margin-left: 20px;">
 		<canvas id="canvas" width="300" height="200" style="width: 300px; height: 200px;"><?readfile("preprocessing/peasant.txt");?></canvas>
 		<p>The intersection of dotted rays indicates a virtual image.</p>
 		<h2>Variables</h2>
@@ -160,7 +160,7 @@
 			<tr><td><button onclick="update_object_position(); draw();">Object distance</button></td><td><textarea id="object_distance_textarea"></textarea></td></tr>
 			<tr><td><button onclick="update_mark_position(); draw();">Mark</button></td><td><textarea id="mark_textarea"></textarea></td></tr>
 		</table>
-	</div>
+	</section>
 	
 	<h2>Suggested use</h2>
 	<ul>

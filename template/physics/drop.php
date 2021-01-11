@@ -89,7 +89,7 @@
 	</table>
 	
 	<h2>Results</h2>
-	<div style="overflow-y: auto; height: 150px;"><table style="width: 100%" id="results"></table></div>
+	<section style="overflow-y: auto; height: 150px;"><table style="width: 100%" id="results"></table></section>
 	
 	<hr>
 	
