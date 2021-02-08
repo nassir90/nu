@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" href="../style.css">
 	<title>Physics</title>
+	
 </head>
 
 <body>
@@ -11,6 +12,7 @@
 		<ul>
 			<li><a href="drop.html">Dropping a mass at different heights</a></li>
 			<li><a href="convex.html">Finding the properties of a convex lens</a></li>
+			<li><a href="induction.html">Electromagnetic induction</a></li>
 		</ul>
 	</section>
 	<footer>

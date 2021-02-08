@@ -9,34 +9,32 @@
 	<link rel="stylesheet" href="../simple.css">
 	<title>Convex Lens</title>
 	<script>
-		<?php readfile("template/physics/util.js")?>
-		
-		var canvas = null;
 		var context = null;
 		
 		var lens_height = 1.5; // meters
 		var focal_length = 1; // meters
 		var mark = 0;
 		
-		var object = vec2(-1,0);
-		var image = vec2(1,0);
+		var object_x = -1;
+		var object_y = 0;
+		var image_x = 1;
+		var image_y = 0;
 		
 		function update_image_position() {
-			image.x = 1/(1/focal_length-1/-object.x);
-			var magnification = image.x / object.x;
-			image.y = magnification * object.y;
+			image_x = 1/(1/focal_length-1/-object_x);
+			var magnification = image_x / object_x;
+			image_y = magnification * object_y;
 		}
 		
 		function change_object_and_update_dependents(x, y) {
-			object.x = x;
-			object.y = y;
-			focal_length = object.x * focal_length > 0 ? -focal_length : focal_length;
+			object_x = x;
+			object_y = y;
+			focal_length = object_x * focal_length > 0 ? -focal_length : focal_length;
 			
 			update_image_position();
 		}
 		
 		function init() {
-			canvas = document.getElementById("canvas");
 			context = canvas.getContext("2d");
 			
 			canvas.onclick = function(mouse_event) {
@@ -52,6 +50,7 @@
 			context.strokeStyle = "<?=$dark?>";
 			context.fillStyle = "<?=$dark?>";
 			context.lineWidth = 0.02;
+			context.font = "15px Arial";
 			
 			set_variables();
 			draw();
@@ -67,7 +66,6 @@
 			context.stroke();
 			
 			// Draw the distance of the mark from the optic center
-			context.font = "15px Arial";
 			draw_text_at(Math.trunc(Math.abs(mark*100))+"cm", mark + 0.1, 1.8, "left");
 			
 			// Draw the lens
@@ -78,34 +76,34 @@
 			// Draw a dot at the optic center
 			context.fillRect(-0.05, -0.05, 0.1, 0.1);
 			
-			if (Math.abs(object.y) < lens_height) {
+			if (Math.abs(object_y) < lens_height) {
 				// Draw the image
 				context.beginPath();
-				context.arc(image.x, image.y, 0.1, 0, 2*Math.PI);
+				context.arc(image_x, image_y, 0.1, 0, 2*Math.PI);
 				context.fill();
-				draw_distance_from_axis(image);
+				draw_distance_from_axis(image_x, image_y);
 				
 				// "The pursuit of DRY above all other goals can lead to bad code" - Somebody.
 				// "Screw it" - Me, using the lines I saved for comments B)
-				context.moveTo(object.x, object.y);
-				context.lineTo(0, object.y);
+				context.moveTo(object_x, object_y);
+				context.lineTo(0, object_y);
 				
 				// If the product of the two x values numbers is positive, then they're both on the same size
-				if (image.x*object.x > 0) {
+				if (image_x*object_x > 0) {
 					// Virtual image
-					context.moveTo(image.x, image.y);
-					context.lineTo(-image.x*100, -image.y*100);
+					context.moveTo(image_x, image_y);
+					context.lineTo(-image_x*100, -image_y*100);
 					
-					context.moveTo(image.x, image.y);
-					context.lineTo((focal_length-image.x)*100+image.x, -image.y*100+image.y);
+					context.moveTo(image_x, image_y);
+					context.lineTo((focal_length-image_x)*100+image_x, -image_y*100+image_y);
 					
 					context.setLineDash([0.1,0.1]);
 				} else {
 					// Real image
-					context.lineTo(image.x, image.y);
+					context.lineTo(image_x, image_y);
 					
-					context.moveTo(object.x, object.y);
-					context.lineTo(image.x, image.y);
+					context.moveTo(object_x, object_y);
+					context.lineTo(image_x, image_y);
 				}
 				
 				context.stroke();
@@ -114,15 +112,15 @@
 			
 			// Draw the object
 			context.beginPath();
-			context.arc(object.x, object.y, 0.2, 0, 2*Math.PI);
+			context.arc(object_x, object_y, 0.2, 0, 2*Math.PI);
 			context.fill();
 			
-			draw_distance_from_axis(object);
+			draw_distance_from_axis(object_x, object_y);
 		}
 		
-		function draw_distance_from_axis(obj) {
-			var adjective = obj.y < 0 ? "above" : "below";
-			draw_text_at(Math.trunc(Math.abs(obj.y*100))+"cm "+adjective, obj.x, obj.y-0.25, "center");
+		function draw_distance_from_axis(x, y) {
+			var adjective = y < 0 ? "above" : "below";
+			draw_text_at(Math.trunc(Math.abs(y*100))+"cm "+adjective, x, y-0.25, "center");
 		}
 		
 		function centered_coordinate_space() { context.setTransform(50, 0, 0, 50, canvas.width/2, canvas.height/2); }
@@ -135,15 +133,15 @@
 			centered_coordinate_space();
 		}
 		
-		function update_mark_position() { mark = -parseInt(mark_textarea.value)/100 || object.x; }
+		function update_mark_position() { mark = -parseInt(mark_textarea.value)/100 || object_x; }
 		
 		function update_object_position() {
-			change_object_and_update_dependents(-parseInt(object_distance_textarea.value)/100 || object.x, object.y);
+			change_object_and_update_dependents(-parseInt(object_distance_textarea.value)/100 || object_x, object_y);
 		}
 		
 		function set_variables() {
-			object_distance_textarea.value = Math.trunc(Math.abs(object.x*100)) + "cm";
-			image_distance_cell.innerHTML = Math.trunc(Math.abs(image.x*100)) + "cm";
+			object_distance_textarea.value = Math.trunc(Math.abs(object_x*100)) + "cm";
+			image_distance_cell.innerHTML = Math.trunc(Math.abs(image_x*100)) + "cm";
 		}
 	</script>
 </head>

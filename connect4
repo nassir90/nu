@@ -1,0 +1,5 @@
+Connect 4
+-> SQL 10*10 sql database containing connect 4 things
+-> scripts/connect4.php place=09
+-> scripts/connect4.php get
+-> Can a PHP request replace a javascript one, in changing the document object model?
