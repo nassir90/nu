@@ -8,14 +8,14 @@
 </head>
 
 <body>
-	<header><h1>Naza's website <small>(<a href="https://nazalvfv.000webhostapp.com/">secure version</a>)</small></h1></header>
+	<h1>Naza's website <small>(<a href="https://nazalvfv.000webhostapp.com/">secure version</a>)</small></h1>
 	
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
 		<ol>
 			<li>PHP</li>
-			<li>CSS</li>
 			<li>HTML</li>
+			<li>CSS</li>
 			<li>Javascript</li>
 		</ol>
 		
@@ -24,9 +24,8 @@
 			<li><a href="physics/index.html">Physics index</a></li>
 			<li><a href="chemistry/index.html">Chemistry index</a></li>
 			<li><a href="appliedmaths/index.html">Applied maths index</a></li>
-			<li><a href="notes/chemistry/acidsandbases.html">Acids and bases definitions</a></li>
-			<li><a href="notes/irish/caitlinmaude.html">Caitlín Maude</a></li>
-			<li><a href="notes/irish/hurlamboc.html">Hurlamboc</a></li>
+			<li><a href="irish/index.html">Irish index</a></li>
+			<li><a href="chemistry/acidsandbases.html">Acids and bases definitions</a></li>
 		</ul>
 		
 		<h2>Other</h2>
@@ -36,6 +35,7 @@
 			<li><a href="outthere/index.html">Articles</a></li>
 		</ul>
 	</section>
+
 	<footer>
 		<h2>School related links</h2>
 		<ul>

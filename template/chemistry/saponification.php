@@ -8,7 +8,7 @@
 <body>
 	<h1>Saponification</h1>
 	
-	<section style="float: right;"><canvas><?php readfile("preprocessing/peasant.txt");?></canvas></section>
+	<section style="float: right;"><canvas><?php readfile("php/peasant.txt");?></canvas></section>
 	
 	<h2>Instructions</h2>
 	<ol>

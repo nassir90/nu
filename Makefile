@@ -1,8 +1,13 @@
-free: folders media php
-	./remove_banner.sh
+default: folders media php md
+
+free: default
+	./tools/remove_banner.sh
+
+md: folders
+	./tools/process_md.sh
 
 php: folders
-	./process_php.sh
+	./tools/process_php.sh
 	mv ./output/simple.html ./output/simple.css
 	mv ./output/style.html ./output/style.css
 
@@ -11,18 +16,15 @@ media: folders
 	
 folders:
 	mkdir -p ./output
-	mkdir -p ./output/notes
-	mkdir -p ./output/notes/irish
-	mkdir -p ./output/notes/chemistry
+	mkdir -p ./output/irish
 	mkdir -p ./output/outthere
 	mkdir -p ./output/physics
 	mkdir -p ./output/chemistry
 	mkdir -p ./output/games
 	mkdir -p ./output/appliedmaths
 
-package: free
-	mkdir -p packages
-	tar cf nazauzoukwu_`date "+%d_%m_%y"`.tar ./template ./preprocessing/ ./*.sh ./Makefile ./README.md
+package: default
+	./tools/package.sh
 
 upload: free
 	lftp nazalvfv@files.000webhost.com

@@ -56,7 +56,7 @@
 	<p>[3] Read Niel Postman's essay 'amusing ourselves to death'</p>
 	<p>[4] People who's biological material can be amplified in a polymerase chain reaction such that either DNA strands the same length as those 'isolated' from sars-cov-2 are observed, or adiquate flourescence can be observed if RT-rtPCR is being employed. The PCR, detatched from the scamdemic is actually pretty cool biology, and you'll learn the fundamentals if you study it.</p>
 	
-	<hr>
+	<hr/>
 	
 	<a href="index.html">Back to index</a>
 </body>

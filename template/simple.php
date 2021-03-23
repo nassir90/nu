@@ -1,4 +1,4 @@
-<?php require("preprocessing/colors.php")?>
+<?php require("php/colors.php")?>
 
 body, a {
 	background: <?=$light?>;

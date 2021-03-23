@@ -1,4 +1,4 @@
-<?php require("preprocessing/colors.php")?>
+<?php require("php/colors.php")?>
 
 <!DOCTYPE html>
 
@@ -117,18 +117,16 @@
 			// I make the origin the bottom left hand side of the screen.
 			// Then I rotate by plane_angle
 			// I know that the hypotenuse is the same length as  the range
-			// 
 			context.save();
 			context.translate(0, 300);
 			context.rotate(toRadians(-plane_angle));
-			context.fillStyle = "white";
 			context.beginPath();
 			context.arc(pixels_per_meter*projectile_x, -pixels_per_meter*projectile_y, 10, 0, 2 * Math.PI);
 			context.fill();
 			
 			context.textAlign = "center";
 			context.font = "15px Arial";
-			context.fillText(projectile_y.toFixed(n) + "m", pixels_per_meter*projectile_x, -pixels_per_meter*projectile_y);
+			context.fillText(projectile_y.toFixed(n) + "m", pixels_per_meter*projectile_x, -pixels_per_meter*projectile_y - 15);
 			context.restore();
 			
 			context.beginPath();
@@ -216,7 +214,7 @@
 			<td id="range_td"></td>
 		<tr>
 	</table>
-	<hr>
+	<hr/>
 	
 	<a href="index.html">Back to index</a>
 	

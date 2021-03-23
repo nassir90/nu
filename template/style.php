@@ -1,4 +1,4 @@
-<?php require("preprocessing/colors.php");?>
+<?php require("php/colors.php");?>
 
 /*The only textareas used are inside <td> elements, so I want them to integrate properly */
 textarea {
@@ -23,7 +23,7 @@ section {
 	margin: 2%;
 }
 
-header {
+header, h1 {
 	text-align: center;
 	margin: 2%;
 }

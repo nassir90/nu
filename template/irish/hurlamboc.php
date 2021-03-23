@@ -1,10 +1,10 @@
-<?php require("preprocessing/util.php")?>
+<?php require("php/util.php")?>
 
 <!DOCTYPE html>
 
 <head>
 	<title>Hurlamboc</title>
-	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../style.css">
 	<meta charset="utf-8">
 </head>
 <body>
@@ -12,7 +12,7 @@
 	<section>
 	
 	<h2>Vocabulary</h1>
-	<?php print(file_to_table("template/notes/irish/hurlamboc.txt"))?>
+	<?php print(file_to_table("template/irish/hurlamboc.txt"))?>
 
 	<h2>Téama an úrscéil</h2>
 	<p>Is é saol le linn ré an tíogair cheiltigh agus an t-ábharachas a bhí ag baint leis téama an úrscéal seo. Tugann Éilis Ní Duibhne léargas dúinn faoi na laethanta na meala fadó fadó. Bhí daoine saibhir, ach bhí siad bochta ó thaobh spiorad agus cultúr<p>
@@ -22,5 +22,5 @@
 	<h2>Aoir glic</h2>
 	<p>Tá aoir go mór chun cinn sa sliocht seo</p>
 	</section>
-	<footer><a href="../../index.html">Home</a></footer>
+	<footer><a href="../index.html">Home</a></footer>
 </body>

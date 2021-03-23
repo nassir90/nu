@@ -9,13 +9,20 @@
 			
 			$table .= "<tr>";
 			
-			for ($i=0; $i<count($columns); $i++) {
-				$table .= "<td>". trim($columns[$i]) . "</td>";
+			foreach ($columns as $column) {
+				$table .= "<td>". trim($column) . "</td>";
 			}
 			
 			$table .= "</tr>";
 		}
 		
 		return $table . "</table>";
+	}
+	
+	function markdown_to_html($path) : String {
+		require("php/Parsedown.php");
+		$file = fopen($path, "r");
+		$parsedown = new Parsedown();
+		return $parsedown->text(fread($file, filesize($path)));
 	}
 ?>

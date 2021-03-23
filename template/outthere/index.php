@@ -8,6 +8,11 @@
 	
 	<section>
 	
+	<h2>Linux</h2>
+	<ul>
+		<li><a href="/outthere/benefits-of-linux.html">Benefits of using linux</a></li>
+	</ul>
+
 	<h2>Consparicy theories</h2>
 	<ul>
 		<li><a href="maybe.html">The maybevirus nondemic</a></li>

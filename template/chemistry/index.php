@@ -9,9 +9,15 @@
 	<header><h1>Chemistry Index</h1></header>
 	<section>
 	
-	<h2>Simulations</h2>
+	<h2>Javascript simulations</h2>
 	<ul>
-		<li><a href=saponification.html>Saponification</a></li>
+		<li><a href="saponification.html">Saponification</a></li>
+		<li><a href="titrations.html">Titrations</a></li>
+	</ul>
+	
+	<h2>Native simulations</h2>
+	<ul>
+		<li><a href="jjthomsonrust.html">On the ratio of the charge on the electron to its mass</a></li>
 	</ul>
 	
 	</section>

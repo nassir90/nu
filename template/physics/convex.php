@@ -1,6 +1,6 @@
 <?php
-	require("preprocessing/colors.php");
-	require("preprocessing/util.php");
+	require("php/colors.php");
+	require("php/util.php");
 ?>
 
 <!DOCTYPE html>
@@ -150,7 +150,7 @@
 	<h1>Finding out the properties of a convex lens</h1>
 	
 	<section style="float: right; width: 300px; margin-left: 20px;">
-		<canvas id="canvas" width="300" height="200" style="width: 300px; height: 200px;"><?readfile("preprocessing/peasant.txt");?></canvas>
+		<canvas id="canvas" width="300" height="200" style="width: 300px; height: 200px;"><?readfile("php/peasant.txt");?></canvas>
 		<p>The intersection of dotted rays indicates a virtual image.</p>
 		<h2>Variables</h2>
 		<table>

@@ -252,9 +252,9 @@
 			context.stroke();
 			
 			//Draw the manget
-			context.beginPath();
-			context.arc(magnet.x, magnet.y, 10, 0, 2 * Math.PI);
-			context.fill();
+			//context.beginPath();
+			context.fillText("E", magnet.x*100, magnet.y*100);
+			//context.fill();
 			
 			// Draw the drop off radius
 			context.save();
@@ -329,14 +329,14 @@
 		<h2>Simulation parameters</h2>
 		<table>
 			<tr>
-				<td><button onclick='set_num(speed_input, "simulation_speed");'>Set magnet speed</button></td>
+				<td><button onclick='set_num(speed_input, "simulation_speed");'>Set field speed</button></td>
 				<td><input type="number"  id="speed_input"></td><td id="current_simulation_speed"></td>
 			</tr>
 			<tr>
 				<td>
 					<fieldset>
 						<input type="radio" name="simulation_starting_position" id="known_flux">Start with a known magnetic flux density at core<br>
-						<input type="radio" name="simulation_starting_position" id="known_distance">Start with magnet at a known distance<br>
+						<input type="radio" name="simulation_starting_position" id="known_distance">Start with the field at a known distance<br>
 					</fieldset>
 					<center><button onclick="update_starting_position();">Set</button></center>
 				</td>
@@ -353,8 +353,8 @@
 	
 	<h2>Simulation window</h2>
 	<center>
-		<canvas id="canvas" width="500px" height="200px"><?readfile("preprocessing/peasant.txt");?></canvas>
-		<p>Press 'l' to lock the position of the magnet, and press 'u' to unlock the magnet</o>
+		<canvas id="canvas" width="500px" height="200px"><?readfile("php/peasant.txt");?></canvas>
+		<p>Press 'l' to lock the position of the field, and press 'u' to unlock the field</o>
 	</center>
 	
 	<h2>Use of this simulation.</h2>

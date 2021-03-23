@@ -9,7 +9,7 @@
 
 	var cards = <?php
 		$counter = 0;
-		$file = fopen("template/notes/chemistry/acidsandbases.txt", "r") or die();
+		$file = fopen("template/chemistry/acidsandbases.txt", "r") or die();
 		$content = "";
 		while(($line = fgets($file)) !== false) {
 			$card = explode("=", $line);
