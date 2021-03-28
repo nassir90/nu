@@ -3,7 +3,6 @@
 <head>
 	<title>Naza's Website</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<meta charset="UTF-8">
 	
 </head>
 
@@ -13,9 +12,9 @@
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
 		<ol>
+			<li>Markdown</li>
 			<li>PHP</li>
-			<li>HTML</li>
-			<li>CSS</li>
+			<li>HTML/CSS</li>
 			<li>Javascript</li>
 		</ol>
 		
@@ -52,10 +51,9 @@
 			<li><a href="https://1lib.eu">Free books</a> - <a href="https://thelatinlibrary.com/">Free latin texts</a></li>
 			<li><a href="https://wttr.in">Instant weather</a></li>
 			<li><a href="https://www.corbettreport.com/">News</a></li>
+			<li><a href="https://iteroni.com">Consume youtube content without google consuming you</a></li>
 		</ul>
 		
 		<hr>
-		
-		<p>This website is hosted with <a href="https://www.000webhost.com/">000webhost</a>, but there's no banner to be seen. How did I do this? <a href="media/crime.png">find out!</a></p>
 	</footer>
 </body>

@@ -81,16 +81,21 @@
 		<li>Get the average of the results</li>
 	</ul>
 	<table>
-		<tr><td><button onclick="start_simulation();">Drop box</button></td><td><button onclick="prepare_for_simulation(); draw();">Reset Simulation</button></td><td><button onclick="draw()">Draw</button></td></tr>
+		<tr>
+			<td><button onclick="start_simulation();">Drop box</button></td>
+			<td><button onclick="prepare_for_simulation(); draw();">Reset Simulation</button></td>
+		</tr>
 	</table>
 	<table>
-		<tr><td><button onclick="update_distance_from_top(); prepare_for_simulation(); draw();">Change the drop height</button></td><td><textarea id="new_mass_height"></textarea></td></tr>
+		<tr>
+			<td><button onclick="update_distance_from_top(); prepare_for_simulation(); draw();">Change the drop height</button></td><td><textarea id="new_mass_height"></textarea></td>
+		</tr>
 	</table>
 	
 	<h2>Results</h2>
 	<section style="overflow-y: auto; height: 150px;"><table style="width: 100%" id="results"></table></section>
 	
-	<hr>
+	<hr/>
 	
 	<a href="index.html">Back to index</a>
 </body>

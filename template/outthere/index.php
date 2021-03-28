@@ -19,5 +19,5 @@
 	</ul>
 	
 	</section>
-	<footer><a href="../index.html">Back to mediocrity</a></footer>
+	<footer><a href="../index.html">Back to index</a></footer>
 </body>

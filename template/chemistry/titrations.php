@@ -141,10 +141,29 @@ function draw() {
 	context.fillRect(100,25+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
 
 	// Draw conical flask
-	context.fillRect(90, 350-volume_of_base_drained*1000, 30, 30+volume_of_base_drained*1000);
+	context.fillRect(100, 365-volume_of_base_drained*1000, 10, volume_of_base_drained*1000);
+
+	context.beginPath();
+	context.moveTo(110, 365);
+	context.lineTo(110, 345);
+	context.lineTo(100, 345);
+	context.lineTo(100, 365);
+	context.closePath();
+	context.stroke();
+
+	// Filled bottom part
+	context.beginPath();
+	context.moveTo(90, 385);
+	context.lineTo(120, 385);
+	context.lineTo(110, 365);
+	context.lineTo(100, 365);
+	context.closePath();
+	context.stroke();
+	context.fill();
 }
 
 </script>
+
 </head>
 
 <body onload="init()">

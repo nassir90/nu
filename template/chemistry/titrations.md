@@ -1,9 +1,9 @@
 # Quick titrations simulation
 I'll make a titration simulator that will do the calculations for the user aswell as providing an interactive mode of carrying out the experiment. They'll be able to leave the burette open until the stuff in the conical flask changes color.
 
-## Planning (Present tense)
+## Planning
 
-I will need to:
+I need to:
 
 * Port the calculations into javascript, and display the results on a table.
 The calculations take inputs and produce outputs, so I'll use the upload/download system that I used [here](../appliedmaths/connectedparticles.html).
@@ -27,7 +27,7 @@ The only problem with this approach is that it makes other functions invisible i
 I could have them all be visible.
 If it's too ugly, I'll just use the javascript only method.
 
-## Implementation (Past tense)
+## Implementation
 
-## Evaluation (Past and present tenses)
+## Evaluation
 

@@ -15,7 +15,7 @@
 	
 	<p>Somebody like me, especially, would have been hard hit by a pandemic, if there were such a thing. I've exposed my self to situations where contagious disease should have struck me down, alas, that didn't happen. During the summer, when there was rumours of a 'second wave', I played basketball at an open court, about three times per week, with no mask. You could bet on the fact that each time you went there'd be a different cohort of people to play with. Now, did I contract this 'novel' coronavirus and die despite being a young and healthy individual? Of course not. If this anecdote isn't good enough (becaue anecdotes are all that can support or deny the locality argument), I'll give you another one. Between september and early december, I once again played basketball almost every day, inisde this time, though with the same cohort of people each time. That said, they'd have their own associates, who had their own, thus, the contagious 'novel' coronavirus should have had a noticable influence. But did I contract the virus and die? You know the answer, no.</p>
 	
-	<p>Now, you might claim that, based on your experince, the pandemic is undeniable. And that may be true. I can't deny your reality. However, you must live in a place so distant that nothing there could influence my daily life. It's aberational to be consumed with the malfortunes of others, in my opinion. As you read this page, people are dying in yemen, children are starving in sudan and farmers are commiting suicide in India. Their plights and yours deserve my pity, but other than that I don't care. Your locality is not mine.</p>
+	<p>Now, you might claim that, based on your experince, the pandemic is undeniable. And that may be true. I can't deny your reality. However, you must live in a place so distant that nothing there could influence my daily life. It's aberational to be consumed with the malfortunes of others, in my opinion. As you read this page, people are dying in yemen, children are starving in sudan and farmers are commiting suicide in India. Your locality is not mine.</p>
 	
 	<h4>The statistical argument</h4>
 	<p>On top of the locality argument, which I feel is almost bulletproof, there's the statistical argument. If this 'novel' coronavirus causes a disease so deadly, such that not even the young are spared, why does it only seem to be lethal for elderly people with preexisting conditions [1]. The disease caused by the 'novel' corona virus, if any [2], can't be lethal for the general population as it only kills elderly people with preexisting conditions.</p>
@@ -24,6 +24,7 @@
 	
 	<p>Furthermore, if you are reading this to be convinced of something, and not write off the ideas discussed here immediately, you'll have to trust that I'm bringing up the <em>cso.ie</em> figures not because I only look for what I want to see, but because what I'm presenting is the only thing to be seen. In any argument going against what you have been led to believe, both the veracity of the presenter and the veracity of the content have to be considered, that said, the veracity of the content is primary [3].</p>
 	
+
 	<h4>The consparitorial arguments</h4>
 	<p>These two arguments, in my case, are rock solid. My locality speaks for itself, and the statistics also support the view that I'm living through a maybevirus nondemic. However, on top of these two arguments, there may be a conspiracy at hand. You may chock the whole thing down to negligence. That's fine. Either way, the conspiracy and negligence differ only in the intent of the perpetrator. The effects are the same.</p>
 	
@@ -43,13 +44,18 @@
 	<p>So what's the purpose of the lockdown. It may be to reorganise wealth and control. If there is a conspiracy, the easiest way to execute it is to have all businesses under your thumb. How do you do this? You cut off their source of income on and off for ten months, and then abolish their independence of income by giving them stipend.</p>
 	
 	<h5>Contact tracing and vaccines</h5>
-	<p>The phrase 'social credit system' immediately conjures up images of China. However, here in Ireland, we're actually moving closer to our own 'social credit system'. It would be naïve to say that I have no form of digital identity: I have a reddit, instagram and gmail account. That said, its aberational to say that just because it's bad, it should be allowed to get worse. I don't think contact tracing will ever go away, and I think that biometrics will be introduced alongside the vaccine under the pretence of making sure those pesky 'anti-masking anti-vaxxers' don't kill the conformists.</p>
+	<p>The phrase 'social credit system' immediately conjures up images of China. However, here in Ireland, we're actually moving closer to our own 'social credit system'. It would be naïve to say that I have no form of digital identity: I have a reddit, instagram and gmail account, and more. That said, to say that just because it's bad, it should be allowed to get worse is irrational. I don't think contact tracing will ever go away, and I think that biometrics will be introduced alongside the vaccine under the pretence of making sure those pesky 'anti-masking anti-vaxxers' don't kill the conformists.</p>
 	
 	<h5>Germ theory</h5>
 	<p>I don't actually deny germ theory, but it's interesting to see how all of the elements of germ theory have been frankensteined to create the scamdemic. We have vaccines that aren't vaccines, and modes of spread that go unproven. Are the symptoms of the 'novel' coronavirus actually caused by something else, given the low ratio of symptomatic to asymptomatic individuals with 'novel coronavirus DNA'[4] combined with the broadness of the symptoms associated with the disease? I don't know.</p>
 	
-	<hr>
+	<h5>The complete and total elimination of the seasonal flu (amendment circa march 2021)</h5>
+	<p>This is why I've been putting 's around 'novel'. <a href="../media/influenza-surveillance-report-week-49-2020.pdf">Here's the document if you don't believe me</a>.</p>
+
+	<hr/>
 	
+	<p><em>UPDATE:</em> The CSO is no longer (circa march 2021) publishing the underlying conditions data... Go figure. Anyway, it's funny to see that different people are essentially operating on different software versions depending on where they get their news. There's the people who still believe their at risk from the Coof, then there's the people who are in it to protect the vulnerable from a 'novel' disease.</p>
+
 	<p>[0] Or falsehood among outlets owned by the same entity...</p>
 	<p>[1] see cso.ie</p>
 	<p>[2] Not even the mass media will claim that the 'novel' coronavirus will 'cause' a disease in most people. The ratio of symptom showing to symptom lacking individuals is so low that the 'asymptomatic superspreader' had to be created. In this wicked burlesque of germ theory, healthy people are made sick, and clean hands made dirty.</p>

@@ -1,4 +1,4 @@
-default: folders media php md
+default: folders media md php
 
 free: default
 	./tools/remove_banner.sh

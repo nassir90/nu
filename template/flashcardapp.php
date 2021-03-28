@@ -63,6 +63,13 @@
 	}
 
 	</script>
+	
+	<style>
+		table {
+			width: 100%;
+			table-layout: fixed;
+		}
+	</style>
 
 </head>
 
@@ -87,5 +94,5 @@
 		</table>
 
 	</section>
-	<footer><a href="index.html">Home</a></footer>
+	<footer><hr/><a href="index.html">Home</a></footer>
 </body>
