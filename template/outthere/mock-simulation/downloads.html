@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mock Simulation</title>
+		<script>
+var context;
+var starting_offset;
+
+function initialise() {
+	context = canvas.getContext("2d");
+}
+
+function draw() {
+	context.clearRect(0, 0, 100, 300);
+	context.fillRect(10, starting_offset, 40, 40);
+}
+
+function download() {
+	starting_offset = (30 - parseInt(starting_offset_input.value)) * 10;
+}
+		</script>
+	</head>
+
+	<body onload="initialise(); draw();">
+		<h1>Mock Simulation</h1>
+		<canvas id="canvas" width="100" height="300"></canvas>
+		<p>Starting offset: <input type="number" id="starting_offset_input" value="30" min="0" max="30"></p>
+		<button onclick="download(); draw();">Update</button>
+		
+		<hr>
+
+		<a href="tutorial.html">Back to tutorial</a>
+	</body>
+</html>

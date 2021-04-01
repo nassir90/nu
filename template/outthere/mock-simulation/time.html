@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mock Simulation</title>
+		<script>
+var id;
+var context;
+var starting_offset;
+var current_offset;
+var starting_time;
+var time_elapsed;
+var results = [];
+
+function initialise() {
+	context = canvas.getContext("2d");
+	reset();
+}
+
+function draw() {
+	context.clearRect(0, 0, 100, 300);
+	context.fillRect(10, current_offset, 40, 40);
+}
+
+function download() {
+	var buffer = parseInt(starting_offset_input.value);
+	starting_offset = isNaN(buffer) ? 0 : 300 - buffer * 10;
+}
+
+function upload() {
+	results_table.innerHTML = "";
+	for (i=0; i<results.length; i++) {
+		results_table.innerHTML += "<tr><td>"+results[i].height+" metres</td><td>"+results[i].time+" seconds</td></tr>";
+	}
+}
+
+function reset() {
+	download();
+	current_offset = starting_offset;
+	starting_time = (new Date()).getTime();
+	draw();
+}
+
+function loop() {
+	window.clearInterval(id);
+	time_elapsed = (new Date()).getTime() - starting_time;
+	current_offset = starting_offset + 98 / 2 * (time_elapsed / 1000) ** 2;
+
+	if (current_offset < 300) {
+		draw();
+		id = window.setInterval(loop, 10);
+	} else {
+		results.push({height: (300-starting_offset)/10, time: time_elapsed/1000});
+		reset();
+		upload();
+	}
+}
+		</script>
+	</head>
+
+	<body onload="initialise(); draw();">
+		<h1>Mock Simulation</h1>
+		<canvas id="canvas" width="100" height="300"></canvas>
+		<p>Starting offset: <input type="number" id="starting_offset_input"></p>
+		<button onclick="reset();">Update</button>
+		<button onclick="reset(); loop();">Loop</button>
+		
+		<h2>Results</h2>
+		<table id="results_table"></table>
+		
+		<hr>
+
+		<a href="tutorial.html">Back to tutorial</a>
+	</body>
+</html>

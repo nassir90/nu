@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>Connected Particles Simulation</title>
+		<meta charset='UTF-8'/>
+		<link rel='stylesheet' href='/simple.css'/>
+	</head>
+	<body>
+		<h1>Connected Particles Simulation</h1>
+
+<p>I will make a 3D simulation of connected particles.
+It should be able to simulate two fixed masses on a pulley, as well as one mass on a wedge.
+As a secondary goal, there should be a few ways to get unknown variables.</p>
+
+<h2>Planning</h2>
+
+<p>I need to:</p>
+
+<ul>
+<li>Make the project 3D.
+I've already learned the fundamentals of blender, so I'll be able to jump right into making models.
+I need a wedge model, a pulley model, and a model for a string segment.</li>
+<li>Make the project interactive.
+I need to include two simulations, so I'll have a menu somewhere on the screen.
+I also need input boxes, so that the user can change variables such as the wedges mass.</li>
+</ul>
+
+<p>I want to:</p>
+
+<ul>
+<li>Be able to show the forces acting on each body. To do this I'll need an arrow model.</li>
+<li>Use an intermediate binary format to store model data.</li>
+<li>Render text to a framebuffer only when updated.
+I could do this by handling text in a unique way in the engine, or I could make framebuffers easilly accessible to the user.
+I think that the latter is better as framebuffers are useful for so much more than just text.</li>
+<li>Have a markdown language for gui.</li>
+</ul>
+
+<h2>Proposed Timeline</h2>
+
+<p>I'll start on tuesday the 9th of febuary, and I'll finish one week later, on tuesday the 16th of febuary.</p>
+
+<ul>
+<li>Make wedge model, string segment model and arrow model.</li>
+<li>Draw complete state machine for the project.</li>
+<li>Implement code to handle two models on either side of a pulley, using variables passed in as command line arguments.</li>
+<li>Implement code to handle wedges.</li>
+<li>Implement input boxes, and add them to each state.</li>
+</ul>
+
+<p>If I have time, I'll</p>
+
+<ul>
+<li>Research how maths engines work out unknown variables, then implement some unknown variable stuff.</li>
+<li>Get the framebuffer working in a basic project, then port to rust.</li>
+<li>Use a binary file format for the intermediate model data.</li>
+<li>Do that markdown stuff.
+In order to get the desired effect, I'll have to sort some stuff out regarding the aspect ratio of the program.
+I may be looking for an orthographic projection matrix.</li>
+</ul>
+
+<h2>Implementation</h2>
+
+<h3>Day one</h3>
+
+<p>On day one I started by planning.
+I had to decide whether to make this project in javascript or with rust, but I ended up deciding to do it in rust.
+If I did this in javascript, I'd essentially just be porting in the equations and then drawing stuff, but doing it with my own engine will be more challenging.
+I really wanted to get the framebuffer working, and If I got to make my gui markdown, my engine would be 100x more powerful.</p>
+
+<p>I then started making the meshes.
+They're fairly basic: the masses are spheres, the strings are composed of pentagonal prisms and the pully is just a slightly modified cylinder.</p>
+
+<p>After making the masses I wanted to create a python script that would export the current mesh into the .obj file format, then execute a converter program that would turn the .obj model into my itermediate file format.
+To do this, I thought that I needed to install pip, and then install bpy (the blender python api).
+This didn't work, and I didn't find a solution.
+Luckily for me, blender actually has an inbuilt python console with bpy ready to use.
+Thus I could write the function.</p>
+
+<p>Then I made the state machine for the simulation.
+It's more complex than the state machine for the <a href="http://nazauzoukwu.xyz/chemistry/jjthomsonrust.html">chemistry experiment</a>, but I'll try get it all done.</p>
+
+<p>I then started loading the meshes into the engine.
+First I just added another state to a program I had already where I'd made two physics simulations, cognates of which are on this site.
+I tried to render them at the origin point, though they were nowhere to be seen.
+I tried rendering a quad, and that worked so I knew that the error was model realted.
+After some time, I used the blender GUI interface to export the pulley model to the .obj file format, then I went to the terminal to export the .obj file to my intermediate format and lo, my pulley was right there.
+So, I then knew that the script was the problem.
+I'll debug it later, as I don't intend on making more models.
+I'll just use the GUI and proceed.</p>
+
+<p><a href="http://nazauzoukwu.xyz/physics/convex.html">Convex Mirror Simulation</a> <br />
+<a href="http://nazauzoukwu.xyz/physics/drop.html">Mass Dropping Simulation</a></p>
+
+<h3>Day one - Midnight</h3>
+
+<p>At 12 AM on wednesday, I planned out the layout of the pulley simulation.
+I wanted it scale depending on the range of the falling mass like how my projectile simulation scales depending on the projectile's range.
+So, I had to design a positioning system that worked in terms of the range.
+I whipped out the most important tool for any programmer, pen and paper, and I got to work.
+First I decided that the masses would be displaced away from the vertical origin line by the radius of the pulley.
+Then I decided that the pulley would always be three quarters up the screen.
+The scale of the whole screen would be three times the range, where the bottom part would be taken up by the falling particle, the middle part would be where the masses start and the top part would be where the pulley would stay.</p>
+
+<p>I then set out to program the rising and falling masses.
+I would find the acceleration of the masses using the methods I learned in applied maths.
+The formula turns out to be: <code>(m1 - m2) / (m1 + m2)</code>.
+I would then use this formula to get the displacement.
+The displacement would be added to the rising mass' y coordinate and subtracted from the falling mass' y coordinate.</p>
+
+<p>Then I added lines for added realism.
+Originally, the line segment mesh was pointing upwards.
+I intended to actually construct lines using multiple segmeents and have them roll over the pulley, so having them facing this way would make them easy to attach to the origin of the masses.
+However, this was superflous.
+All I needed to do was have two downwards pointing segments on either side of the pulley.
+As the rising pulley went up, I would shrink its line and as the falling pully went down, I would increase the scale of its own line too.</p>
+
+<p><img src="../media/masses-falling-with-lines.png" alt="Masses Falling with Lines" title="" /></p>
+
+<p>The next thing I'd need to add was interactability, in the form of command line arguments.</p>
+
+<h3>Day two</h3>
+
+<p>I planned out the layout for the wedge simulation.
+Where the pulley simulation was based on range, the wedge simulation would be based on the maximum distance between the mass and the wedge.
+I would calculate this range simply by combining their displacements.
+I would then focus the camera on the position of the mass (which is to the left of the wedge) plus half the distance between them.
+The angle of the camera fustrum is set to 45 degrees, so I can set the displacement of the camera just above half the distance between the mass and the wedge and they will both be included on the screen.</p>
+
+<p>I implemented the wedge simulation.
+It took some time to get the wedge to appear as if it was sliding down the wedge.
+Reaching this point was nice, but I wanted to check wherther my simulations actually mapped to anything in reality.
+Turns out they didn't.
+It's like Rutherford says: there's actual physics, and there's stamp collecting.
+I was stamp collecting.
+I couldn't get consistent values for the acceleration of the mass or the wedge on paper, so I just went to bed and decided to continue on thursday.
+My sanity was waning and everything just seemed like a number on a page, none more correct than the other.</p>
+
+<h3>Day three</h3>
+
+<p>I went back to basics to debug the wedge simulation.
+I would calculate the acceleration of the wedge and the acceleration of the mass, when their masses were both 1kg, and the angle of the wedge was 45 degrees.
+I did the calculations on paper, and my value for the acceleration of the wedge matched the simulation, but my value for the acceleration of the mass differed.</p>
+
+<p>So it appears as though I made an algebraic error.
+It was a simple sign mistake, when getting the acceleration of the mass in terms of g and a (the acceleration of the wedge).
+But then the acceleration of the mass was 9.8 ms<sup>-2</sup>, which was a bit suspect.
+I just chocked it down to the absence of friction, as the results of the simulation agreed with the maths on paper.</p>
+
+<p><a href="https://www.smbc-comics.com/?id=3011">Comic on troubleshooting in applied maths</a></p>
+
+<p>Then I tried to verify the simulation when the mass of the wedge and the mass were 1kg, and the angle was 30 degrees.
+And while doing this on paper, I realised the crux of the error.
+I wasn't accounting for the fact that the reaction force on the wedge is at an angle.
+First I though that the this would imply that the force of the wedge would be <code>RSin(90-A)</code>, but it turns out that it's just <code>RSinA</code>.
+After implementing this fix, the code worked well enough, and was representative of what you would get if you did the equations yourself.
+Now, as for that thing called the real world...
+I choose to ignore it.</p>
+
+<p>I then made the camera focus around the resting place of the mass.
+The equation for the focal point looks something like <code>(mass_displacement * 2.0 + wedge_displacement) / 3.0</code>.</p>
+
+<p>Then I made it so that once the mass hit the ground, the simulation would appear to stop.
+First I derived a simple equation to get the time taken to achieve any displacement.
+Then I calculated the time it would take for the mass to reach the bottom of the wedge.
+Then, I made sure that if the time elapsed was greater than the time the mass would take to reach the bottom, subsequent equations of motion would stop using new times.</p>
+
+<p>Along the line, I also enabled passing varaiables on the command line to the simulation.
+I figured that I could save alot of time if I didn't have to recompile the program every time I wanted to change a variable.</p>
+
+<p>I added a bit of flair to the pulley simulation by making the pulley spin.
+All I had to do was use the equation for radians to get the angle the pulley would have rotated through given the displacement of the masses.</p>
+
+<h3>Day three - Midnight</h3>
+
+<p>I sorted out the lighting.
+I basically just copied the code from <a href="http://learnopengl.com">learnopengl.com</a>.</p>
+
+<p><img src="../media/dark-wedge.png" alt="Dark wedge" title="" /></p>
+
+<h3>Day four</h3>
+
+<p>I made input work.
+At first I wanted to use the glfw function for getting key names, but that gave me a segfault for some reason.
+I just made a function in the engine for getting the string version of a key, and used this instead.
+Other than making the stringification function, I didn't have to change the engine.
+All I had to do was capture any printable keys and append their string versions to a textbox.</p>
+
+<p><img src="../media/applied-maths-joke.png" alt="Applied maths joke, written out" title="" /></p>
+
+<h3>Day five</h3>
+
+<p>On this day I made the markup language for gui elements.
+The initail idea was that you would define the rows of a 'pane', and each pane would contain gui elements, though would add more capabilities as the need arose.</p>
+
+<p>The markup language used the file format that I'd created already, which was very similar to JSON.
+It was composed of 'lists', which can contain other 'lists' or values.
+Lists could be tagged with a name and/or a type.
+Names allowed lists to be loaded, well, by name.
+Having types meant that the language facilitated data classification.
+A fully speced out looked like this: <code>Name [ : Type Content... ]</code>.
+The content consisted of whitespace separated strings, numbers, and/or other lists.
+When a list contains another list, the interior list can be thought of as a member of a struct or a class.</p>
+
+<p>The first iteration of the pane renderer could only render rows with equal heights, but I ended up changing the markup language to allow for variability.</p>
+
+<p>The GUI elements in my engine contain the element's position, scale, and content.
+I only stored the content of each gui element in a pane, and not the position or the scale.
+The position and the scale corresponding to each bit of loaded content in the pane would be generated according to an algorithm that's similar to the algorithm I used to render text.
+It goes something like this:</p>
+
+<ul>
+<li>Determine the height of the pane in rows, by adding the heights of all the rows in the pane.
+Divide the vertical scale of the pane by this number to get the vertical scale of each row.</li>
+<li>Determine the sum of all of the heights up to the row of the element to be generated.
+Multiply this number by the vertical scale of each row to find the <strong>y coordinate</strong> of the element to be generated.</li>
+<li>Divide the horizontal scale of the pane by the number of elements in the row to get the <strong>horizontal scale</strong> of the element to be generated.</li>
+<li>Multiply the horizontal scale by the place of the gui element to be generated in the row to get the <strong>x coordinate</strong> of the element.</li>
+<li>Multiply vertical scale of each row by the height of the element's row to get the <strong>vertical scale</strong> of the element.</li>
+</ul>
+
+<p>There was a fair bit of debugging in order before I started trasfering the gui to the markup langauge.
+Some of it entailed fighting rust's borrow checker, as you do, and some of it involved the stupid mistakes I made along the way.
+For example, at one point, I calculated the number of elements in each row by finding the sum of the loaded lists.
+However, the height parameter was its own list, so a list with two elements and a defined height would appear as a list with three elements.
+This caused a good few problems, like array out of bound errors and incorrectly calculated positions and scales.</p>
+
+<p>As I did port the gui over to the markup language, I realised that I had to add fixed height text if my bitmap text was to look even mildly good when rendered out.
+Up to this point, I allowed the number of columns to be fixed.
+After the number of characters exceeded the column count of a text area, the horizontal scale of each glyph in the text area would be reduced and a new line would be created.
+This didn't play well with the height system in the markup language, which enabled rows to be resized regardless of their content.
+I just had to introduce a 'rows' variable and then take this into acount when rendering, by rendering an amount of characters which was the number of rows * the number of columns.</p>
+
+<p>As I said earlier, my input boxes were just text boxes, whose contents I mutated.
+Thus, repeated this pattern when adding the 'input boxes' in the markup language.
+I just added text named text elements.
+I would store the text element last clicked and then any subsequent printable keystrokes would be appended to the selected text area.
+With that done, I had input boxes for all of the simulatio variables, and the minimum viable product was done.</p>
+
+<p><img src="../media/connected-particles-mvp.png" alt="MVP baby B-)" title="" /></p>
+
+<h3>Day 7</h3>
+
+<p>I implemented framebuffers in a c project.
+I copied the code into rust and it didn't work, so I gave up.</p>
+
+<h3>Day 8 - overdue</h3>
+
+<p>I implemented data serialisation.
+Conceptually, it isn't a hard idea to grasp, but I had trouble finding out how to go about doing it.
+First I just treated float pointers as characters.
+I presumed that characters were 8 bytes on rust but they're actuall unicode somethings that represent.. stuff.
+So that didn't work.
+I got gobledegook when I printed out the characters, which I expected, but I was unable to read it as valid floats.
+I eventually found out that there was a way to write bytes directly to a file, and this is what I ended up using.
+I just put some metadata at the start of the file saying how many vertices there are, then I loaded x number of vertices and the remainder of the file I treated as indices.</p>
+
+<h2>Evaluation</h2>
+
+<h3>Did I solve all the problems I set out to solve</h3>
+
+<p>I only got the bare minimum done on this project.
+It can't calculate unknown variables, it doesn't show the forces acting on the bodies and I couldn't get the framebuffer to work.</p>
+
+<h3>Other comments and reservations</h3>
+
+<p>I need to learn about code safety and speed, things which are important when you're doing filereading, and input.</p>
+
+<p>It would be cool to have command line utilities for simulations, e.g <code>calculate wedge-acceleration --angle 30 --wedge-mass 2.0 --mass 3.0</code>.</p>
+
+<p>The gui, though more capable, still looks crap.
+If I can get round borders, freetype glyphs, text wrapping, dimming when you hover the mouse over a button and high quality icons, I'll be happy. Or I could just use GTK...</p>
+	</body>

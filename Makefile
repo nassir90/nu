@@ -1,10 +1,13 @@
-default: folders media md php
+default: media php html md
 
 free: default
 	./tools/remove_banner.sh
 
 md: folders
 	./tools/process_md.sh
+
+html: folders
+	./tools/move_html_files.sh
 
 php: folders
 	./tools/process_php.sh
@@ -14,20 +17,15 @@ php: folders
 media: folders
 	cp ./template/media ./output/ -R
 	
-folders:
-	mkdir -p ./output
-	mkdir -p ./output/irish
-	mkdir -p ./output/outthere
-	mkdir -p ./output/physics
-	mkdir -p ./output/chemistry
-	mkdir -p ./output/games
-	mkdir -p ./output/appliedmaths
 
 package: default
 	./tools/package.sh
 
 upload: free
 	lftp nazalvfv@files.000webhost.com
+
+folders:
+	mkdir -p `find template/ -type d | sed 's/template/output/g'`
 
 clean:
 	rm ./output -R

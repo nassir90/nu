@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>J. J. Thomson project</title>
+		<meta charset='UTF-8'/>
+		<link rel='stylesheet' href='/simple.css'/>
+	</head>
+	<body>
+		<h1>J. J. Thomson project</h1>
+
+<h2>The Brief</h2>
+
+<p>I will create a 3D simulation, or analogue of J. J. Thomson's experiment to measure the ratio of the charge on the electron to its mass.
+I intend to challenge myself by making use of 3d models, lighting and wrapping text.</p>
+
+<h2>Planning</h2>
+
+<p>I will need to:</p>
+
+<ul>
+<li>Understand how one calculates the ratio of the charge on the electron to its mass.
+I intend to research this question on the internet, as my chemistry book only gives a rudimentary explanation.</li>
+<li>Port the equations into a programing language.
+I intend to use rust as I am well versed in it.</li>
+<li>Make the project 3D, so I'll have to make make a model of the apparatus.
+I intend to learn blender to do this.</li>
+<li>Show the path of the electrons.
+I can use equations in 's' or 't' to do this.</li>
+<li>Make the simulation interactive.
+I will enable the user to alter the charge on the electrode and the strength of the helmholtz electromagnet pair.</li>
+</ul>
+
+<p>I want to:</p>
+
+<ul>
+<li>Animate the electrons.</li>
+<li>Make sure that it's educational.
+I will add a text overview of the experiment.</li>
+</ul>
+
+<h2>Proposed Timeline</h2>
+
+<p>I'll begin on the 1st of febuary 2021 and finish on the 7th of febuary.</p>
+
+<ul>
+<li>Research the experiment and the equations needed to understand it  </li>
+<li>Learn the basics of blender  </li>
+<li>Make the models </li>
+<li>Load the models into the engine  </li>
+<li>Implement text wrapping  </li>
+<li>Draw state machine diagram  </li>
+<li>Use the state machine diagram to write the simulation</li>
+</ul>
+
+<h2>Implementation</h2>
+
+<h3>Day one</h3>
+
+<p>On day one, I researched J. J. Thomson's experiment.
+I dedicated one hour of the evening to go through 6 pages of a pdf, while making flashcards.
+The "hardest part" was the equation for the magnetic flux between helmholtz coils.
+It just took a while to find and initially, I thought there were uncertainty because I thought I saw two equations, but I had actually seen the same equation written in different ways.</p>
+
+<p>Most of the other stuff is on the physics course e.g.
+magnetic flux density, current, voltage.
+The formula for the speed of an electron coming out of an electron gun is just an application of the law of conservation of energy.</p>
+
+<p><a href="../media/thomson/thomson-em-ratio.pdf">Thomson's experiments</a> <br />
+<a href="http://lampx.tugraz.at/~hadley/num/apps/numerical_integration/thomson.en.php">Looks like it's already been done, but you gotta persevere - for science</a> <br />
+<a href="https://www.maxwells-equations.com/">Maxwell's equations</a> <br />
+<a href="https://en.wikipedia.org/wiki/helmholtz_coil">Helmholtz coils</a>  </p>
+
+<h3>Day two</h3>
+
+<p>On the evening of day two, I downloaded 'Beginning Blender' by Lance Flavell.
+I read up to chapter three, so I covered the basic controls of blender, basic modeling and a bit of sculpting.
+The sculpting was fun, but I didn't actually use it when making the model apparatus.
+The notes that I took were in the form of flash cards.</p>
+
+<p><a href="https://www.apress.com/gp/book/9781430231264">Beginning Blender by Lance Flavell</a>  </p>
+
+<h3>Day three</h3>
+
+<p>On day three, I made the model apparatus.
+The first thing I made was the electron gun.
+At first, I used three cylinders as feet, but I later converted to feet to extrusions, making use of the mirror tool so that I wouldn't have to do the same work twice.
+Then I made the paralell electodes, which was a pretty easy job.
+The blocks that the wires are connected to are supposed to be power supplies.
+I decided to make my own coils, rather than using the default torus, as the torus was too thick.</p>
+
+<p><img src="../media/thomson/front.png" alt="Front view" title="" />
+<img src="../media/thomson/side.png" alt="Side view" title="" />
+<img src="../media/thomson/top.png" alt="Top view" title="" /></p>
+
+<p>On this day, I also made the model loader.
+First of all, I had to think about whether to roll my own .obj loader or use a premade one.
+I decided on the latter, but I may make my own one down the line, if it appeals to me.
+The premade .obj loading library I chose was 'tobj'.
+The code was pretty easy to grasp, which was nice.
+I'm starting to believe even complex pieces of software like web browsers shouldn't be too hard to understand, once you know the basics.
+It's actually in the interest of all open source code maintainers to write clean, readable code, as otherwise, who's going to contribute?</p>
+
+<p>I had an engine already, and I already had a section for loading models, though it was unimplemented.
+I didn't really want to load .obj files in the engine, so I decided to make an intermediate program to convert .obj files into the format that my vertex arrays are in, that is, positions first, normals second and texture coordinates last.
+I had some problems getting it working, though I'm not sure which one was the biggest problem.
+How? Well, I kept on changing the code, and it remained broken, until eventually I fixed a version of the codebase that was fairly distant from the original botched program.
+I was using "windows" to split the array of vectors when I shoudl have been using "chunks".
+(See the rust standard library documentation for an explanation).
+I knew something was fishy when my version of the quad model had 12 vertices!</p>
+
+<p>Anyway, after getting that done, I just had to do some minor things in blender to get the model upright in the game engine.
+Here's the result.</p>
+
+<p><img src="../media/thomson/in-engine.png" alt="I rendered lorem ipsum to the screen" title="" /></p>
+
+<p>Note that this isn't the final result.
+I just used an earlier project as a template.</p>
+
+<p><a href="https://github.com/Twinklebear/tobj">Tiny OBJ Loader</a>  </p>
+
+<h3>Day four</h3>
+
+<p>On day four, I implemented text wrapping.
+I had already implemented an algorithm for rendering a sequence of characters horizontaly given a bounding box that goes something like this:</p>
+
+<ul>
+<li>Take the horizontal scale of the bounding box and divide it by the number of characters to be rendered.
+This would be the horizontal scale of each character.</li>
+<li>Opengl renders from the center, so place the cursor such that it's position is the lefthand side of the bounding box plus half of the horizontal scale.</li>
+<li>For each character, the x coordinate is the origin plus the character index multiplied by the horizontal scale.</li>
+</ul>
+
+<p>This algorithm ould be replicated for rendering rows of text, but first I had to implement those rows.
+I already had a Text class, so I added a variable called "maximum_rows".
+This variable would determine the number of rows in the bounding box.
+A zero value would represent no row limit, i.e the first algorithm would be used.</p>
+
+<p>The new algorithm looks like this:</p>
+
+<ul>
+<li>Take the vertical scale of the bounding box and divide it by the number of rows and raise it up to the nearest integer.
+This would be the vertical scale of each character.</li>
+<li>Place the origin point in the top left corner of the bounding box, at a horizontal offset of half the horizontal scale and a vertical offset of half the vertical scale.</li>
+<li>For each character, the x coordinate is the origin x coordinate plus the character index modulus the number of rows.
+The y coordinate is the origin plus the character index divided by the number of rows (floored) multiplied by the vertical scale.</li>
+</ul>
+
+<p><img src="../media/thomson/choppy.png" alt="Wrapping Text" title="" /></p>
+
+<p>Again, I added this to an earlier project as I had not yet started writing code for the simulation yet.</p>
+
+<h3>Day five</h3>
+
+<p>On day five, I wrote the state machine for the simulation.
+To be honest, the simulation isn't that complex.
+It has two states.</p>
+
+<p>In the main state, the program will draw the apparatus, the voltages and a button to show the description of the experiment.
+The main state also has a substate, in which the electrons will be drawn.
+The second state renders the description of the experiment and the apparatus.
+One can return back to the main state by pressing the escape key.</p>
+
+<p>Due to the simplicity of the states involved, I didn't see it as worth it to use my StateManager class.
+I would just some booleans rather than full blown classes and a state manager.</p>
+
+<p>I decided to continue on a bit ahead of schedule and write the code for the simulation.
+The first thing I did was write the boilerplate code for my engine.
+It's only one line, but it's hard to remember the type signatures.
+I was about to use the way of loading resources that I had at the time, which entailed loading each resource on a separate line, but I found this too cumbersome.
+I already had a resource file format that was used in the costructor for my resource manager, so I just had to refactor it so that it was available to the user.</p>
+
+<p>Then I just had to load all the named resource handles in from the resource manager, and I could start rendering.</p>
+
+<p>Porting the equations into code was pretty straightforwards.
+The only hard part was dealing with how rust forces you to be explicit about alot of conversions.
+I still don't anticipate compile errors when I try to multiply 2 and 2.0...
+C and C++ will convert the 2 for you.</p>
+
+<p>With all this done, I had the minimum viable product.</p>
+
+<p><img src="../media/thomson/main.png" alt="The main state" title="" />
+<img src="../media/thomson/description.png" alt="The description state" title="" /></p>
+
+<h2>Evaluation</h2>
+
+<h3>Did I solve all the problems I set out to solve?</h3>
+
+<p>I used blender to make a 3D model of the apparatus.</p>
+
+<p>I showed the path of the electrons and I animeted them moving aswell.
+I did this as I thought I would, using equations in 's' and 't'.</p>
+
+<p>I implemented wrapping text.
+I used the wrapping text feature to add a description of the experiment, making it educational.</p>
+
+<p>I made the project interactive, by alloing the user to use the 'm' and 'c' keys to change the magnetic voltage and the electorode p.d respectively.</p>
+
+<h3>Other thoughts and reservations.</h3>
+
+<p>I initially wanted to use bezier curves for the wires, but I couldn't figure out how to turn a curve into a mesh so I just extruded a square.
+The electron gun should be grounded, as the electrons should have zero potential at the anode.</p>
+
+<p>I still rely too much on brute forcing the compiler to catch my errors.
+If I started debugging the model loader with basic shapes, I could have saved alot of time.</p>
+
+<p>I could have used a binary intermediate format rather than a text based one.</p>
+
+<p>I could have rendered all that text to a framebuffer.
+Just having it on the screen drives my cpu usage up to 86%...
+I actually did try to use a framebuffer, but I couldn't initialize the opengl frambuffer correctly, so I just gave up.
+This was around day 6 and 7 so I'd already finished the minimum viable product.</p>
+
+<p>In addition to that, I think that if the dimentions of a font are powers of two, the font is easy to resize.
+It was nigh impossible to get some of the text to be clear without maximising the window, taking a screenshot with imagemagick, and resizing it with mogrify.
+That's why one of the above images are blury, and the rest of them look crisp but crap.</p>
+
+<hr />
+
+<p>There's no fancy stuff on this page as I wrote it in markdown rather than html.
+I might just use html next time.</p>
+
+<p><a href="index.html">Back to index</a></p>
+	</body>

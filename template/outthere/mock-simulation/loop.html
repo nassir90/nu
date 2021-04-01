@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mock Simulation</title>
+		<script>
+var id;
+var context;
+var starting_offset;
+var current_offset;
+var starting_time;
+var time_elapsed;
+
+function initialise() {
+	context = canvas.getContext("2d");
+	reset();
+}
+
+function draw() {
+	context.clearRect(0, 0, 100, 300);
+	context.fillRect(10, current_offset, 40, 40);
+}
+
+function download() {
+	starting_offset = (30 - parseInt(starting_offset_input.value)) * 10;
+}
+
+function reset() {
+	download();
+	current_offset = starting_offset;
+	starting_time = (new Date()).getTime();
+	draw();
+}
+
+function loop() {
+	time_elapsed = (new Date()).getTime() - starting_time;
+	current_offset = starting_offset + 98 / 2 * (time_elapsed / 1000) ** 2;
+
+	if (current_offset < 300) {
+		draw();
+	} else {
+		window.clearInterval(id);
+		reset();
+		upload();
+	}
+}
+
+function start() {
+	id = window.setInterval(loop, 10);
+}
+		</script>
+	</head>
+
+	<body onload="initialise(); draw();">
+		<h1>Mock Simulation</h1>
+		<canvas id="canvas" width="100" height="300"></canvas>
+		<p>Starting offset: <input type="number" id="starting_offset_input" value="30" min="0" max="30"></p>
+		<button onclick="reset();">Update</button>
+		<button onclick="reset(); start();">Loop</button>
+		
+		<hr>
+
+		<a href="tutorial.html">Back to tutorial</a>
+	</body>
+</html>

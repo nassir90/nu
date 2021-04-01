@@ -8,9 +8,12 @@
 	
 	<section>
 	
-	<h2>Linux</h2>
+	I really need to automate index pages
+
+	<h2>Linux/Technology</h2>
 	<ul>
 		<li><a href="/outthere/benefits-of-linux.html">Benefits of using linux</a></li>
+		<li><a href="/outthere/mock-simulation/tutorial.html">How I make a simulation</a></li>
 	</ul>
 
 	<h2>Consparicy theories</h2>

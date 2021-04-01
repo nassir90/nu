@@ -1,5 +1,10 @@
 <?php require("php/colors.php")?>
 
+body { 
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
 body, a {
 	background: <?=$light?>;
 	color: <?=$dark?>;

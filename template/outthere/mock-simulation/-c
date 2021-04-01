@@ -1,0 +1,136 @@
+# How I make a simulation
+In this document, I'll guide you through how I'd make a basic simulation of a brick falling on the ground.
+
+## Prerequisites
+
+You need to:
+
+* Understand basic HTML.
+* Understand basic Javascript.
+
+Web Development is so trendy right now that you can basically learn it in any format that you fancy.
+The [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web) are pretty useful if reading is what tickles your pickle.
+
+## The Steps
+
+### Make the skeleton webpage
+First use your knowledge of rudimentary HTML, make a website with a title and a heading.
+
+[Source Code](skeleton.html)
+
+### Do initialisation
+
+When you're making a simulation, you're going to be using the canvas.
+The canvas is a HTML5 element that allows you to create graphics on the screen.
+
+I like things nice and orderly.
+That means having the scripts in the `\<head\>` section.
+In order to do this, you need to make use of the `onload` feature of HTML, otherwise the browser will run the script before the canvas has been initialised.
+
+The initialisation function gets the context, and stores it in a variable.
+The context is an object that provides a number of methods which can be used to draw to the canvas.
+You can think of objects as sets of data that may or may not perform actions on themselves.
+
+**In the head**
+
+**The body**
+
+In javascript, any element given an ID can be referenced directly as if it were defined already in the javascript source (In most cases, you don't need to use `document.getElementById(...)`).
+The canvas element appears as an object in Javascript, which can be used to get a context as well as other useful things like getting the dimensions of the canvas.
+An argument has to be passed to the `getContext` method as there are numerous ways of drawing to the canvas, hence there are numerous contexts.
+
+[Source Code](initialisation.html)
+
+
+### Draw to the canvas
+
+Now it's time to draw to the canvas.
+The first thing you should note is how the Javascript coordinate space is configured by default.
+The x coordinate increases rightwards and the y coordinate increases downwards.
+I'm told that the reasoning for this is that it mimics how elements are placed on the webpage, starting at the top and going down.
+
+These methods are to be used:
+
+* `context.fillRect(startx, starty, sizex, sizey)` - This function is pretty self explanatory.
+The starting coordinates refer to the top left of the rectangle.
+* `context.clearRect(startx, starty, sizex, sizey)` - This function is identical to the former function, differing only that it erases anything on the canvas rather than filling the specified area with a color.
+
+**In the initialise funciton**
+`function draw() {
+	context.clearRect(0, 0, 100, 300);
+	context.fillRect(10, 10, 40, 40);
+}
+`
+A black box will appear on the canvas.
+
+[Source Code](canvas.html)
+
+### Do I/O using javascript, buttons and inputs
+
+The basic idea behind how I do I/O in Javascript is as follows:
+
+* The state of the application is stored in Javascript variables.
+* The Javascript side 'downloads' data from the HTML inputs.
+* When the website needs to be updated to reflect changes in the application state, the Javascript side 'uploads' it's data to the HTML page.
+
+#### Structuring the Javascript side and the HTML side
+
+First, you structure the application state.
+
+**In the script**
+
+`...
+
+var starting_offset;
+var current_offset;
+function reset() {
+	starting_offset = 0;
+	current_offset = 0;
+}
+`
+We use a reset function rather than defining the variables outright as the simulation has to be reset in the same way after each loop.
+
+#### Downloading inputs
+
+**In the body**
+
+
+**In the script**
+
+As I've said, elements given IDs in HTML are exposed as objects to Javascript.
+The `input` element has a member variable called `value` which holds the string representation of the number contained in it.
+The `parseInt` function takes a string argument and tries to parse it as a number.
+If it succeds, it returns the parsed number, otherwise it returns a special value called NaN (Not a Number).
+You can learn about the syntax of the second line [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+
+#### Uploading outputs
+
+Like how the `<input type="number">` elements expose the `value` member variable, all HTML elements expose the `innerHTML` variable.
+This is useful to modifying things such as `<p>`s, `<table>`s and more.
+
+**In the body** 
+
+
+**In the script**
+
+[Source Code](input-and-output.html)
+
+### Make the loop using traintracks OR by incremental changes
+When I say traintracks, I mean that the position of the objects that are to be draw to the screen are functions of time.
+All you're doing then, is storing a variable for time mapping the results of known equations onto the positions of objects.
+
+[Source Code](traintracks.html)
+
+### Store results in some way
+
+[Source Code](displaying-results.html)
+
+### Think about the domain/subject
+
+### Tinker...
+You learn domain specific knowledge by experience.
+You won't learn how to convert pixels to meters in a textbook, you have to intuit that.
+
+---
+
+[Back to index](../index.html)

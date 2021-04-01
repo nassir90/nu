@@ -310,10 +310,8 @@
 			</tr>
 			<tr>
 				<td>
-					<fieldset>
-						<input type="radio" name="coil_dimension" id="use_radius">Modify coil size with a known radius<br>
-						<input type="radio" name="coil_dimension" id="use_area">Modify coil size with a known area
-					</fieldset>
+					<input type="radio" name="coil_dimension" id="use_radius">Modify coil size with a known radius<br>
+					<input type="radio" name="coil_dimension" id="use_area">Modify coil size with a known area
 					<center><button onclick="update_coil_radius()">Set</button></center>
 				</td>
 				<td><input type="number" id="coil_dimension_input"></td>
@@ -334,10 +332,8 @@
 			</tr>
 			<tr>
 				<td>
-					<fieldset>
-						<input type="radio" name="simulation_starting_position" id="known_flux">Start with a known magnetic flux density at core<br>
-						<input type="radio" name="simulation_starting_position" id="known_distance">Start with the field at a known distance<br>
-					</fieldset>
+					<input type="radio" name="simulation_starting_position" id="known_flux">Start with a known magnetic flux density at core<br>
+					<input type="radio" name="simulation_starting_position" id="known_distance">Start with the field at a known distance<br>
 					<center><button onclick="update_starting_position();">Set</button></center>
 				</td>
 				<td>
