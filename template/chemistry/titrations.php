@@ -21,6 +21,7 @@ var molarity_of_base;
 var volume_of_base;
 var acid_to_base_ratio; // HCl + NaOH -> NaCl + H2O
 var dilution_factor_of_acid;
+var dilution_factor_of_base;
 var calculate = calculate_0;
 var calculate_molarity_of_acid = calculate_molarity_of_acid_0;
 var calculate_molarity_of_base = calculate_molarity_of_base_1;
@@ -54,6 +55,7 @@ function download() {
 	acid_to_base_ratio = parseFloat(acid_to_base_ratio_input.value);
 	molarity_of_acid = parseFloat(molarity_of_acid_input.value);
 	dilution_factor_of_acid = parseFloat(dilution_factor_of_acid_input.value);
+	dilution_factor_of_base = parseFloat(dilution_factor_of_base_input.value);
 	moles_of_acid = parseFloat(moles_of_acid_input.value);
 	volume_of_acid = parseFloat(volume_of_acid_input.value);
 	volume_of_base = parseFloat(volume_of_base_input.value);
@@ -96,7 +98,7 @@ function calculate_molarity_of_base_2() {
 
 function calculate_0() {
 	moles_of_acid = molarity_of_acid * volume_of_acid;
-	moles_of_base = 1 / acid_to_base_ratio * moles_of_acid;
+	moles_of_base = 1 / acid_to_base_ratio * moles_of_acid * dilution_factor_of_base;
 	molarity_of_base = calculate_molarity_of_base();
 	volume_of_base = moles_of_base / molarity_of_base;
 }
@@ -109,6 +111,7 @@ function calculate_1() {
 // Use a random value for the molarity
 function base_mode_2(){
 	volume_of_base_div.style.display = "none";
+	dilution_factor_of_base_input_div.style.display = "none";
 	volume_of_base_tr.style.display = "table-row";
 	random_notice_p.style.display = "block";
 	calculate_molarity_of_base = calculate_molarity_of_base_2;
@@ -117,6 +120,7 @@ function base_mode_2(){
 // Calculate the molarity of the base given the volume, number of moles and dilution factor
 function base_mode_1(){
 	volume_of_base_div.style.display = "block";
+	dilution_factor_of_base_input_div.style.display = "block";
 	volume_of_base_tr.style.display = "none";
 	random_notice_p.style.display = "none";
 	calculate_molarity_of_base = calculate_molarity_of_base_1;
@@ -192,6 +196,29 @@ function draw() {
 	context.fill();
 }
 
+function download_unknown() {
+	var unknown;
+	var known;
+
+	if (unknown_base.checked) {
+		unknown="base";
+		known = "acid";
+	} else {
+		unknown="acid";
+		known="base";
+	}
+	
+	knowns = document.getElementsByClassName("known");
+	for (i=0; i<knowns.length; i++) {
+		knowns[i].innerHTML = known;
+	}
+
+	unknowns = document.getElementsByClassName("unknown");
+	for (i=0; i<unknowns.length; i++) {
+		unknowns[i].innerHTML = unknown;
+	}
+}
+
 </script>
 
 </head>
@@ -200,49 +227,54 @@ function draw() {
 	<h1>Titrations</h1>
 	
 	<section style="float: right; width: 600px;">
+		<h2>What you want to know about</h2>
+		<input onchange="download_unknown()" type="radio" name="unknown_radio" id="unknown_base" checked="true"> The properties of the base are unknown<br>
+		<input onchange="download_unknown()" type="radio" name="unknown_radio" id="unknown_acid"> The properties of the acid are unknown
+
 		<h2>Calculation type</h2>
-		<button onclick="mode_0()">I know the volume of the acid, and its molarity</button>
-		<button onclick="mode_1()">I know the volume of the acid, and the number moles dissolved therin</button>
-		<button onclick="base_mode_1()">I know the volume of the base needed to reach the end point</button>
-		<button onclick="base_mode_2()">Use a random value for the molarity of the base</button>
+		<button onclick="mode_0()">I know the volume of the <span class="known"></span>, and its molarity</button>
+		<button onclick="mode_1()">I know the volume of the <span class="known"></span>, and the number moles dissolved therin</button>
+		<button onclick="base_mode_1()">I know the volume of the <span class="unknown"></span> needed to reach the end point</button>
+		<button onclick="base_mode_2()">Use a random value for the molarity of the <span class="unknown"></span></button>
 
 		<h2>Parameters</h2>
 	
-		<div><input id="acid_to_base_ratio_input" type="number" value="1"> Acid to base ratio</div>
-		<div id="molarity_of_acid_input_div"><input id="molarity_of_acid_input" type="number" value="0.1"> Molarity of the acid</div>
-		<div><input id="volume_of_acid_input" type="number" value="0.025"> The volume of the acid (L)</div>
-		<div id="moles_of_acid_div"><input id="moles_of_acid_input" type="number" value="1.0"> The number of moles of the acid</div>
-		<div id="dilution_factor_of_acid_input_div"><input id="dilution_factor_of_acid_input" type="number" value="1.0"> The dilution factor of the acid</div>
-		<div id="volume_of_base_div"><input id="volume_of_base_input" type="number" value="0.025"> The volume of base needed to reach the end point (L)</div>
+		<div><input id="acid_to_base_ratio_input" type="number" value="1"> <span class="known"></span> to <span class="unknown"></span> ratio</div>
+		<div id="molarity_of_acid_input_div"><input id="molarity_of_acid_input" type="number" value="0.1"> Molarity of the <span class="known"></span></div>
+		<div><input id="volume_of_acid_input" type="number" value="0.025"> The volume of the <span class="known"></span> (L)</div>
+		<div id="moles_of_acid_div"><input id="moles_of_acid_input" type="number" value="1.0"> The number of moles of the <span class="known"></span></div>
+		<div id="dilution_factor_of_acid_input_div"><input id="dilution_factor_of_acid_input" type="number" value="1.0"> The dilution factor of the <span class="known"></span></div>
+		<div id="volume_of_base_div"><input id="volume_of_base_input" type="number" value="0.025"> The volume of <span class="unknown"></span> needed to reach the end point (L)</div>
+		<div id="dilution_factor_of_base_input_div"><input id="dilution_factor_of_base_input" type="number" value="1.0"> The dilution factor of the <span class="unknown"></span></div>
 		
-		<p id="random_notice_p">The molarity of the base will be a random value between 0.1M and 0.4M.</p>
+		<p id="random_notice_p">The molarity of the <span class="unknown"></span> will be a random value between 0.1M and 0.4M.</p>
 		<button onclick="holy_trinity();">Calculate</button>
 		
 		<h2>Outputs</h2>
 		<table>
 			<tr id="molarity_of_acid_tr">
-				<td>The molarity of the acid</td>
-				<td>(N<sub>of moles of acid</sub>/V<sub>acid</sub>)/k</td>
+				<td>The molarity of the <span class="known"></span></td>
+				<td>(N<sub>of moles of <span class="known"></span></sub>/V<sub><span class="known"></span></sub>)/k</td>
 				<td id="molarity_of_acid_td"></td>
 			</tr>
 			<tr>
-				<td>The number of moles of acid inside the conical flask</td>
-				<td>V<sub>acid</sub>M<sub>acid</sub></td>
+				<td>The number of moles of <span class="known"></span> inside the conical flask</td>
+				<td>V<sub><span class="known"></span></sub>M<sub><span class="known"></span></sub></td>
 				<td id="moles_of_acid_td"></td>
 			</tr>
 			<tr id="volume_of_base_tr">
-				<td>The volume of the base needed to neutralise the flask</td>
-				<td id="volume_of_base_source_td"><em>Based on random molarity</em></td>
+				<td>The volume of the <span class="unknown"></span> needed to neutralise the flask</td>
+				<td id="volume_of_base_source_td"><em><span class="unknown"></span>d on random molarity</em></td>
 				<td id="volume_of_base_needed_to_neutralise_td"></td>
 			</tr>
 			<tr>
-				<td>The molarity of the base</td>
-				<td>(V<sub>acid</sub>M<sub>acid</sub>)/V<sub>base</sub></td>
+				<td>The molarity of the <span class="unknown"></span></td>
+				<td>(V<sub><span class="known"></span></sub>M<sub><span class="known"></span></sub>)/V<sub><span class="unknown"></span></sub></td>
 				<td id="molarity_of_base_td"></td>
 			</tr>
 			<tr>
-				<td>The number of moles of the base needed to neutralise the flask</td>
-				<td>M<sub>base</sub>V<sub>base</sub></td>
+				<td>The number of moles of the <span class="unknown"></span> needed to neutralise the flask</td>
+				<td>M<sub><span class="unknown"></span></sub>V<sub><span class="unknown"></span></sub></td>
 				<td id="moles_of_base_needed_to_neutralise_td"></td>
 			</tr>
 		</table>
