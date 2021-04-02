@@ -6,7 +6,7 @@ I'll make a titration simulator that will do the calculations for the user aswel
 I need to:
 
 * Port the calculations into javascript, and display the results on a table.
-The calculations take inputs and produce outputs, so I'll use the upload/download system that I used [here](../appliedmaths/connectedparticles.html).
+The calculations take inputs and produce outputs, so I'll use the upload/download system that I used [here](../appliedmaths/inclinedplane.html).
 * Make graphics for all the apparatus.
 This is a more laborious task, but doable.
 I might just use squares for the MVP.
@@ -15,6 +15,8 @@ There's an argument to be made that if the page is informative, it should have n
 * Integrate the calculation part in with the simulation part.
 I'm not actually going to let the user let the burette run.
 I'll just put it on train tracks.
+* Allow the user to decide whether to use a known base volume OR a random base volume due to a random molarity.
+* Allow the user to switch between unknown base properties and unknown acid properties.
 
 I want to:
 
@@ -28,6 +30,9 @@ I could have them all be visible.
 If it's too ugly, I'll just use the javascript only method.
 
 ## Implementation
+
+As for allowing the user to switch the substance whose properties are unknown, I considered putting all references to acid or base in `<span>` tags, and switching them depending on the unknown substance.
+I don't know whether or not this is a good idea.
 
 ## Evaluation
 

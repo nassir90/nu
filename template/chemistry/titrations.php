@@ -22,6 +22,8 @@ var volume_of_base;
 var acid_to_base_ratio; // HCl + NaOH -> NaCl + H2O
 var dilution_factor_of_acid;
 var calculate = calculate_0;
+var calculate_molarity_of_acid = calculate_molarity_of_acid_0;
+var calculate_molarity_of_base = calculate_molarity_of_base_1;
 
 var loop_timer = null;
 var volume_of_base_drained;
@@ -34,10 +36,13 @@ function init() {
 	context = canvas.getContext('2d');
 	context.fillStyle = "<?=$dark?>";
 	reset_variables();
+	base_mode_1();
+	mode_0();
 }
 
 function reset_variables() {
 	dilution_factor_of_acid = 1;
+	dilution_factor_of_base = 1;
 	volume_of_acid = 0.025;
 	acid_to_base_ratio = 1;
 	molarity_of_acid = 0.1;
@@ -46,19 +51,12 @@ function reset_variables() {
 }
 
 function download() {
-	var number;
-
-	number = parseFloat(molarity_of_acid_input.value);
-	molarity_of_acid = number ? number : moles_of_acid;
-
-	number = parseFloat(dilution_factor_of_acid_input.value);
-	dilution_factor_of_acid = number ? number : dilution_factor_of_acid;
-
-	number = parseFloat(moles_of_acid_input.value);
-	moles_of_acid = number ? number : moles_of_acid;
-
-	number = parseFloat(volume_of_acid_input.value);
-	volume_of_acid = number ? number : volume_of_acid;
+	acid_to_base_ratio = parseFloat(acid_to_base_ratio_input.value);
+	molarity_of_acid = parseFloat(molarity_of_acid_input.value);
+	dilution_factor_of_acid = parseFloat(dilution_factor_of_acid_input.value);
+	moles_of_acid = parseFloat(moles_of_acid_input.value);
+	volume_of_acid = parseFloat(volume_of_acid_input.value);
+	volume_of_base = parseFloat(volume_of_base_input.value);
 }
 
 function mode_0() {
@@ -66,7 +64,6 @@ function mode_0() {
 	molarity_of_acid_input_div.style.display = "block";
 	dilution_factor_of_acid_input_div.style.display = "none";
 	moles_of_acid_div.style.display = "none";
-	volume_of_acid_div.style.display = "none";
 	molarity_of_acid_tr.style.display = "none";
 	calculate = calculate_0;
 }
@@ -76,20 +73,53 @@ function mode_1() {
 	molarity_of_acid_input_div.style.display = "none";
 	dilution_factor_of_acid_input_div.style.display = "block";
 	moles_of_acid_div.style.display = "block";
-	volume_of_acid_div.style.display = "block";
 	molarity_of_acid_tr.style.display = "table-row";
 	calculate = calculate_1;
 }
 
+function calculate_molarity_of_acid_0() {
+	return molarity_of_acid;
+}
+
+function calculate_molarity_of_acid_1() {
+	return moles_of_acid / volume_of_acid / dilution_factor_of_acid;
+}
+
+// The volume of the base is known
+function calculate_molarity_of_base_1() {
+	return moles_of_base / volume_of_base;
+}
+
+function calculate_molarity_of_base_2() {
+	return 0.1 + 0.5 * Math.random();
+}
+
 function calculate_0() {
 	moles_of_acid = molarity_of_acid * volume_of_acid;
-	moles_of_base = moles_of_acid * acid_to_base_ratio;
+	moles_of_base = 1 / acid_to_base_ratio * moles_of_acid;
+	molarity_of_base = calculate_molarity_of_base();
 	volume_of_base = moles_of_base / molarity_of_base;
 }
 
 function calculate_1() {
 	molarity_of_acid = moles_of_acid / volume_of_acid / dilution_factor_of_acid;
 	calculate_0();
+}
+
+// Use a random value for the molarity
+function base_mode_2(){
+	volume_of_base_div.style.display = "none";
+	volume_of_base_tr.style.display = "table-row";
+	random_notice_p.style.display = "block";
+	calculate_molarity_of_base = calculate_molarity_of_base_2;
+}
+
+// Calculate the molarity of the base given the volume, number of moles and dilution factor
+function base_mode_1(){
+	volume_of_base_div.style.display = "block";
+	volume_of_base_tr.style.display = "none";
+	random_notice_p.style.display = "none";
+	calculate_molarity_of_base = calculate_molarity_of_base_1;
 }
 
 function clear_table() {
@@ -114,18 +144,21 @@ function holy_trinity() {
 	upload();
 }
 
+function start() {
+	time_elapsed = 0;
+	loop_timer = window.setInterval(simulate, timeout);
+}
+
 function simulate() {
-	window.clearTimeout(loop_timer);
 
 	volume_of_base_drained = 0.0025 * time_elapsed;
 	draw();
 
 	if (volume_of_base_drained < volume_of_base) {
 		time_elapsed += unit_meaning;
-		window.setTimeout(simulate, timeout);
 	} else {
 		upload();
-		time_elapsed = 0;
+		window.clearTimeout(loop_timer);
 	}
 	
 }
@@ -139,9 +172,6 @@ function draw() {
 
 	// Draw burette
 	context.fillRect(100,25+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
-
-	// Draw conical flask
-	context.fillRect(100, 365-volume_of_base_drained*1000, 10, volume_of_base_drained*1000);
 
 	context.beginPath();
 	context.moveTo(110, 365);
@@ -171,15 +201,21 @@ function draw() {
 	
 	<section style="float: right; width: 600px;">
 		<h2>Calculation type</h2>
-		<button onclick="mode_0()">I know the molarity of the acid</button>
+		<button onclick="mode_0()">I know the volume of the acid, and its molarity</button>
 		<button onclick="mode_1()">I know the volume of the acid, and the number moles dissolved therin</button>
+		<button onclick="base_mode_1()">I know the volume of the base needed to reach the end point</button>
+		<button onclick="base_mode_2()">Use a random value for the molarity of the base</button>
 
 		<h2>Parameters</h2>
+	
+		<div><input id="acid_to_base_ratio_input" type="number" value="1"> Acid to base ratio</div>
 		<div id="molarity_of_acid_input_div"><input id="molarity_of_acid_input" type="number" value="0.1"> Molarity of the acid</div>
-		<div id="volume_of_acid_div"><input id="volume_of_acid_input" type="number" value="0.025"> The volume of the acid (L)</div>
+		<div><input id="volume_of_acid_input" type="number" value="0.025"> The volume of the acid (L)</div>
 		<div id="moles_of_acid_div"><input id="moles_of_acid_input" type="number" value="1.0"> The number of moles of the acid</div>
 		<div id="dilution_factor_of_acid_input_div"><input id="dilution_factor_of_acid_input" type="number" value="1.0"> The dilution factor of the acid</div>
-		<p>The molarity of the base will be a random value between 0.1M and 0.4M.</p>
+		<div id="volume_of_base_div"><input id="volume_of_base_input" type="number" value="0.025"> The volume of base needed to reach the end point (L)</div>
+		
+		<p id="random_notice_p">The molarity of the base will be a random value between 0.1M and 0.4M.</p>
 		<button onclick="holy_trinity();">Calculate</button>
 		
 		<h2>Outputs</h2>
@@ -194,9 +230,9 @@ function draw() {
 				<td>V<sub>acid</sub>M<sub>acid</sub></td>
 				<td id="moles_of_acid_td"></td>
 			</tr>
-			<tr>
+			<tr id="volume_of_base_tr">
 				<td>The volume of the base needed to neutralise the flask</td>
-				<td><em>Obtained experimentally</em></td>
+				<td id="volume_of_base_source_td"><em>Based on random molarity</em></td>
 				<td id="volume_of_base_needed_to_neutralise_td"></td>
 			</tr>
 			<tr>
@@ -215,7 +251,7 @@ function draw() {
 	<center>
 		<h2>Simulation</h2>
 		<canvas id="canvas" width="200" height="400" style="width: 200px; height: 400px"></canvas>
-		<button style="display: block;" onclick="calculate(); simulate();">Simulate</button>
+		<button style="display: block;" onclick="calculate(); start();">Simulate</button>
 		<p>The burette drains at 2.5cm<sup>3</sup> per second</p>
 		<p>Also, try not to break the simulation. It's only the conical flask (the square shaped container) is only meant to store 25cm<sup>3</sup> of liquid</p>
 	</center>
@@ -225,7 +261,7 @@ function draw() {
 		<li>The simulation is rendered accurately on screen, as you can see. In fact, it's so precise, that the values cannot be discerned using traditional measurement tools.</li>
 	</ul>
 
-	<hr/>
+	<hr>
 
-	<a href="index.html">Back to index</a>
+	<a href="index.html">Back to index</a> <a href="/chemistry/titrations-log.html">Log</a>
 </body>

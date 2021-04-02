@@ -1,8 +1,5 @@
 default: media php html md
 
-free: default
-	./tools/remove_banner.sh
-
 md: folders
 	./tools/process_md.sh
 

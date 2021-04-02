@@ -11,58 +11,61 @@
 		var gravity = 98; // 10px = one meter
 		
 		var local_time = 0;
-		var distance_from_top = 0;
-		var mass_y = distance_from_top;
+		var drop_height = 30;
+		var mass_y = 0;
 		
 		var context = null;
 		
 		function init() {
 			context = canvas.getContext("2d");
 			context.fillStyle = "<?=$dark?>";
-			new_mass_height.value = distance_from_top;
 			draw();
 		}
 		
 		function draw() {
 			context.clearRect(0, 0, canvas.width, canvas.height);
-			context.fillRect(40, mass_y, 20, 20);
+			context.fillRect(40, mass_y+20, meters_to_pixels(2), meters_to_pixels(2));
 			
 			context.beginPath();
 			for (i=300; i > 0; i-=10) {
 				context.moveTo(0, i+20);
 				context.lineTo(35, i+20);
-				context.fillText((300-i)/10+"m", 0, i+20);
+				context.fillText(pixels_to_meters(300-i).toFixed(1)+"m", 0, i+20);
 			}
 			context.stroke();
 		}
 		
 		function fall() {
 			if (mass_y < 300) {
-				mass_y = distance_from_top + gravity/2 * Math.pow(local_time, 2);
+				mass_y = gravity/2 * Math.pow(local_time,2);
 				local_time += unit_meaning;
 				draw();
 				window.setTimeout(fall, timeout);
 			} else {
-				results.innerHTML += "<tr><td>" +  (30-distance_from_top/10) + " m Drop </td><td>" + local_time.toFixed(3) + "s</td></tr>";
+				results.innerHTML += "<tr><td>" + drop_height + " m Drop </td><td>" + local_time.toFixed(3) + "s</td></tr>";
 			}
 		}
-		
+
+		function download_drop_height() {
+			drop_height = parseInt(drop_height_input.value);
+		}
+
+		function pixels_to_meters(pixels) {
+			return pixels * (drop_height / 300);
+		}
+
 		function meters_to_pixels(meters) {
-			return Math.min(300, Math.max(0, 300-meters*10));
+			return (300 / drop_height) * meters;
 		}
 		
-		function update_distance_from_top() {
-			distance_from_top = meters_to_pixels(parseInt(new_mass_height.value) || 300);
-			mass_y = distance_from_top;
-		}
-		
-		function prepare_for_simulation() {
-			mass_y = distance_from_top;
+		function reset() {
+			gravity = meters_to_pixels(9.8);
+			mass_y = 0;
 			local_time = 0;
 		}
 		
 		function start_simulation() {
-			prepare_for_simulation();
+			reset();
 			fall();
 		}
 	</script>
@@ -83,12 +86,12 @@
 	<table>
 		<tr>
 			<td><button onclick="start_simulation();">Drop box</button></td>
-			<td><button onclick="prepare_for_simulation(); draw();">Reset Simulation</button></td>
+			<td><button onclick="reset(); draw();">Reset Simulation</button></td>
 		</tr>
 	</table>
 	<table>
 		<tr>
-			<td><button onclick="update_distance_from_top(); prepare_for_simulation(); draw();">Change the drop height</button></td><td><textarea id="new_mass_height"></textarea></td>
+			<td><button onclick="download_drop_height(); reset(); draw();">Change the drop height</button></td><td><input id="drop_height_input" type="number" value="30"></td>
 		</tr>
 	</table>
 	

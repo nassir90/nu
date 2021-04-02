@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<h1>Naza's website <small>(<a href="https://nazalvfv.000webhostapp.com/">secure version</a>)</small></h1>
+	<h1>Naza's website <small>(<a href="https://nassir90.github.io/nu-output/">secure version</a>)</small></h1>
 	
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
@@ -43,17 +43,16 @@
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
 			<li><a href="http://www.olabs.edu.in/">All the scientific simulations you could ever want</a></li>
 		</ul>
+
 		<h2>Other links</h2>
 		<ul>
 			<li><a href="media/postman-amusing.epub">Amusing ourselves to death by Niel Postman</a></li>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a href="https://1lib.eu">Free books</a> - <a href="https://thelatinlibrary.com/">Free latin texts</a></li>
+			<li><a href="https://1lib.eu">Free books</a>
 			<li><a href="https://wttr.in">Instant weather</a></li>
+			<li><a href="https://iteroni.com">Youtube client without the crud</a></li>
 			<li><a href="https://www.corbettreport.com/">News</a></li>
-			<li><a href="https://iteroni.com">Consume youtube content without google consuming you</a></li>
 		</ul>
-		
-		<hr>
 	</footer>
 </body>
