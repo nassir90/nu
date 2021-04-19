@@ -25,6 +25,8 @@
 			<li><a href="appliedmaths/index.html">Applied maths index</a></li>
 			<li><a href="irish/index.html">Irish index</a></li>
 			<li><a href="chemistry/acidsandbases.html">Acids and bases definitions</a></li>
+			<li><a href="french/index.html">French index</a></li>
+			<li><a href="yearbook/index.html">Yearbook Generator</a></li>
 		</ul>
 		
 		<h2>Other</h2>

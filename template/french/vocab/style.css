@@ -1,0 +1,13 @@
+table {
+	table-layout: fixed;
+	width: 60em;;
+}
+
+td {
+	background-color: lightgrey;
+}
+
+td ~ td {
+	width: default;
+	background-image: linear-gradient(to right, lightgrey, white);
+}

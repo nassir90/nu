@@ -1,0 +1,32 @@
+#!/bin/bash
+
+while getopts "d:o:" option ; do
+	case $option in
+		d)
+			PREFIX="$OPTARG" 
+			;;
+		o)
+			OUTPUT="$OPTARG"
+		;;
+	esac
+done
+
+echo '<head>
+	<title>Vocabulary</title>
+	<link rel="stylesheet" type="text/css" href="/simple.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Vocabulary</h1>' > $OUTPUT
+
+for FILENAME in $PREFIX* ; do
+	BASENAME=`basename $FILENAME`
+	echo '<h2>'${BASENAME//-/ }'</h2>
+	<table>'
+	sed 's/^/<tr><td>/; s/,/<\/td><td>/g; s/$/<\/td><\/tr>/' $FILENAME
+	echo '</table>'
+done >> $OUTPUT
+
+echo '<hr/>
+<a href="../index.html">Go back</a>
+</body>' >> $OUTPUT

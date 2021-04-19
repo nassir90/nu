@@ -30,7 +30,7 @@ var loop_timer = null;
 var volume_of_base_drained;
 var time_elapsed = 0;
 var unit_meaning = 0.1;
-var timeout = unit_meaning * 1000;
+var timeout = unit_meaning * 100;
 var context = null;
 
 function init() {
@@ -39,6 +39,7 @@ function init() {
 	reset_variables();
 	base_mode_1();
 	mode_0();
+	download_unknown();
 }
 
 function reset_variables() {
@@ -239,7 +240,7 @@ function download_unknown() {
 
 		<h2>Parameters</h2>
 	
-		<div><input id="acid_to_base_ratio_input" type="number" value="1"> <span class="known"></span> to <span class="unknown"></span> ratio</div>
+		<div><input id="acid_to_base_ratio_input" type="number" value="1"> The <span class="known"></span> to <span class="unknown"></span> ratio</div>
 		<div id="molarity_of_acid_input_div"><input id="molarity_of_acid_input" type="number" value="0.1"> Molarity of the <span class="known"></span></div>
 		<div><input id="volume_of_acid_input" type="number" value="0.025"> The volume of the <span class="known"></span> (L)</div>
 		<div id="moles_of_acid_div"><input id="moles_of_acid_input" type="number" value="1.0"> The number of moles of the <span class="known"></span></div>

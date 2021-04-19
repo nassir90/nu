@@ -66,7 +66,7 @@
 			context.stroke();
 			
 			// Draw the distance of the mark from the optic center
-			draw_text_at(Math.trunc(Math.abs(mark*100))+"cm", mark + 0.1, 1.8, "left");
+			draw_text_at(Math.abs(mark*100).toFixed(0)+"cm", mark + 0.1, 1.8, "left");
 			
 			// Draw the lens
 			context.beginPath();
@@ -120,7 +120,7 @@
 		
 		function draw_distance_from_axis(x, y) {
 			var adjective = y < 0 ? "above" : "below";
-			draw_text_at(Math.trunc(Math.abs(y*100))+"cm "+adjective, x, y-0.25, "center");
+			draw_text_at(Math.abs(y*100).toFixed(0)+"cm "+adjective, x, y-0.25, "center");
 		}
 		
 		function centered_coordinate_space() { context.setTransform(50, 0, 0, 50, canvas.width/2, canvas.height/2); }
@@ -133,15 +133,17 @@
 			centered_coordinate_space();
 		}
 		
-		function update_mark_position() { mark = -parseInt(mark_textarea.value)/100 || object_x; }
+		function update_mark_position() {
+			mark = parseInt(mark_input.value)/100 || object_x;
+		}
 		
 		function update_object_position() {
-			change_object_and_update_dependents(-parseInt(object_distance_textarea.value)/100 || object_x, object_y);
+			change_object_and_update_dependents(parseInt(object_distance_input.value)/100, object_y);
 		}
 		
 		function set_variables() {
-			object_distance_textarea.value = Math.trunc(Math.abs(object_x*100)) + "cm";
-			image_distance_cell.innerHTML = Math.trunc(Math.abs(image_x*100)) + "cm";
+			object_distance_input.value = Math.abs(object_x*100).toFixed(0) + "cm";
+			image_distance_cell.innerHTML = Math.abs(image_x*100).toFixed(0) + "cm";
 		}
 	</script>
 </head>
@@ -155,15 +157,15 @@
 		<h2>Variables</h2>
 		<table>
 			<tr><td>Image distance</td><td id="image_distance_cell"></td></tr>
-			<tr><td><button onclick="update_object_position(); draw();">Object distance</button></td><td><textarea id="object_distance_textarea"></textarea></td></tr>
-			<tr><td><button onclick="update_mark_position(); draw();">Mark</button></td><td><textarea id="mark_textarea"></textarea></td></tr>
+			<tr><td><button onclick="update_object_position(); draw();">Object distance</button></td><td><input id="object_distance_input" type="number" value="0"></td></tr>
+			<tr><td><button onclick="update_mark_position(); draw();">Mark</button></td><td><input id="mark_input" type="number" value="0"></td></tr>
 		</table>
 	</section>
 	
 	<h2>Suggested use</h2>
 	<ul>
 		<li>Memorise the table. Do this by saying it in your head and then subsequently writing it out a couple of times.</li>
-		<li>Adjust the position of the object using the mouse or the textarea.</li>
+		<li>Adjust the position of the object using the mouse or the input.</li>
 		<li>Using your knowledge of the images created in a convex lens, mark: f and 2f.</li>
 	</ul>
 	<h2>Property table</h2>

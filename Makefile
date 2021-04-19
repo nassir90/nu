@@ -5,6 +5,7 @@ md: folders
 
 html: folders
 	./tools/move_html_files.sh
+	./template/french/vocab/make_tables -d template/french/vocab/Mock -o output/french/vocab/index.html
 
 php: folders
 	./tools/process_php.sh
@@ -13,7 +14,6 @@ php: folders
 
 media: folders
 	cp ./template/media ./output/ -R
-	
 
 package: default
 	./tools/package.sh

@@ -1,0 +1,15 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.es.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.es.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.es.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.es.min.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.node.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.node.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.node.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.node.min.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.umd.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.umd.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.umd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.umd.min.js.map'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/polyfills.es.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/polyfills.umd.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/scripts'></script>

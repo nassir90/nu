@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yearbook Generator</title>
+<script src="https://raw.githubusercontent.com/eKoopmans/html2pdf.js/master/dist/html2pdf.js"></script>
+	<link rel="stylesheet" href="../simple.css">
+<script>
+
+// An A4 image is 595px by 842px
+// I want to leave some padding, so I'll have them be 580 by 832 in and have 5px margins.
+
+var images = [];
+var number_of_images = 0;
+
+function check() {
+	if (!old_portrait_input.files.length && !content_input.files.length && !new_portrait_input.files.length) {
+		alert("You must submit images to generate a yearbook...");
+		return false;
+	}
+	if (old_portrait_input.files.length != content_input.files.length || old_portrait_input.files.length != new_portrait_input.files.length) {
+		alert("The number of portraits must equal the number of content images");
+		return false;
+	}
+
+	return true;
+}
+
+function configure_image(image) {
+	image.style.width = "100px";
+	image.style.height = "150px";
+	image.style.margin = "5px";
+	image.style.border = "2px inset grey";
+}
+
+function generate_content(index) {
+	new_portrait = document.createElement("img");
+	new_portrait.src = URL.createObjectURL(new_portrait_input.files[index]);
+	configure_image(new_portrait);
+
+	old_portrait = document.createElement("img");
+	old_portrait.src = URL.createObjectURL(old_portrait_input.files[index]);
+	configure_image(old_portrait);
+
+	image_div = document.createElement("div");
+	image_div.style.float = "right";
+	image_div.appendChild(old_portrait);
+	image_div.appendChild(new_portrait);
+
+	content_div = document.createElement("div");
+	content_image = document.createElement("img");
+	content_div.style.backgroundImage = "url("+URL.createObjectURL(content_input.files[index])+")";
+	content_div.style.backgroundSize = "595px 421px";
+	content_div.style.width = "585px";
+	content_div.style.height = "411px";
+	content_div.style.border = "2px inset grey"
+	content_div.style.margin = "3px";
+	
+	content_div.appendChild(content_image);
+	content_div.appendChild(image_div);
+	return content_div;
+}
+
+function upload() {
+	var worker = html2pdf().from(pages);
+	setTimeout(function(){document.body.innerHTML += "<a href='"+worker.output('bloburi')+"'>Blob URI</a>"}, 3000);;
+
+}
+
+function generate_pages() {
+	if (!check()) {
+		return;
+	}
+
+	var page;
+	var total_number_of_pages = old_portrait_input.files.length / 2;
+	pages.innerHTML = "";
+	for (page = 0; page < total_number_of_pages; page+=1) {
+		page_div = document.createElement("div");
+		pages.appendChild(page_div);
+
+		page_div.style.width = "595px";
+		page_div.style.height = "842px";
+		page_div.style.border = "1px solid black";
+
+		if (page*2 < old_portrait_input.files.length) page_div.appendChild(generate_content(page*2));
+		if (page*2+1 < old_portrait_input.files.length) page_div.appendChild(generate_content(page*2+1));
+	}
+}
+		</script>
+		<body>
+			<h1>Yearbook Generator</h1>
+			<p>Old portraits, new portraits and their corresponding content images should be in the format: name_old_portrait and name_content respectively to ensure alphabetic ordering</p>
+			<p>Old portrait images: <input type="file" id="old_portrait_input" multiple></p>
+			<p>New portrait images: <input type="file" id="new_portrait_input" multiple></p>
+			<p>Content images: <input type="file" id="content_input" multiple></p>
+			<button onclick="generate_pages();">Generate</button>
+			<button onclick="generate_pages(); upload();"> Generate and Download</button>
+
+			<div id="pages" style="background-color: white; width: 595px;"></div>
+			<hr>
+			<a href="../index.html">Back to index</a>
+		</body>
+</html>
