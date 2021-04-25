@@ -18,8 +18,10 @@ media: folders
 package: default
 	./tools/package.sh
 
-upload: free
-	lftp nazalvfv@files.000webhost.com
+push: default
+	git add .
+	git commit
+	git push
 
 folders:
 	mkdir -p `find template/ -type d | sed 's/template/output/g'`

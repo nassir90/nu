@@ -16,7 +16,7 @@
 		<li><a href="/outthere/mock-simulation/tutorial.html">How I make a simulation</a></li>
 	</ul>
 
-	<h2>Consparicy theories</h2>
+	<h2>Other</h2>
 	<ul>
 		<li><a href="maybe.html">The maybevirus nondemic</a></li>
 	</ul>

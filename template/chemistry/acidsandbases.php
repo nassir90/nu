@@ -4,7 +4,7 @@
 
 <head>
 	<title>Acids and bases</title>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../simple.css">
 </head>
 
 <body>
@@ -14,5 +14,7 @@
 	<?php print(file_to_table("template/chemistry/acidsandbases.txt")); ?>
 	</section>
 	
-	<footer><a href="../index.html">Home</a></footer>
+	<hr/>
+	
+	<a href="index.html">Home</a>
 </body>

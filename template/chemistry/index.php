@@ -9,6 +9,11 @@
 	<header><h1>Chemistry Index</h1></header>
 	<section>
 	
+	<h2>Notes</h2>
+	<ul>
+		<li><a href="acidsandbases.html">Acids and bases definitions</a></li>
+	</ul>
+
 	<h2>Javascript simulations</h2>
 	<ul>
 		<li><a href="saponification.html">Saponification</a></li>
