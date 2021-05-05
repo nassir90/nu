@@ -13,6 +13,7 @@
 		<ul>
 			<li><a href="caitlinmaude.html">Caitlín Maude</a></li>
 			<li><a href="hurlamboc.html">Hurlamboc</a></li>
+			<li><a href="an-tearrach-thiar.html">An tEarrach Thiar</a></li>
 			<li><a href="oral.html">Oral questions</a></li>
 		</ul>
 	</section>

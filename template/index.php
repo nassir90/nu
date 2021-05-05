@@ -50,7 +50,7 @@
 			<li><a href="media/postman-amusing.epub">Amusing ourselves to death by Niel Postman</a></li>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
 			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a href="https://1lib.eu">Free books</a>
+			<li><a href="https://z-lib.org">Free books</a>
 			<li><a href="https://wttr.in">Instant weather</a></li>
 			<li><a href="https://iteroni.com">Youtube client without the crud</a></li>
 			<li><a href="https://www.corbettreport.com/">News</a></li>

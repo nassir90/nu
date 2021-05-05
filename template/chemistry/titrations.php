@@ -171,30 +171,38 @@ function simulate() {
 function draw() {
 	context.clearRect(0,0,200,400);
 
-	// Draw retort stand
-	context.fillRect(50,25,10,350);
-	context.fillRect(30,375,50,10);
-
 	// Draw burette
-	context.fillRect(100,25+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
+	context.fillRect(95,25+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
+	context.strokeRect(95,25, 10, 250);
+
+	var volume_of_liquid_in_conical_flask = (volume_of_base + volume_of_acid) * 0.01; // We have to convert liters to meters cubed
+	var conical_flask_radius = Math.pow((3*volume_of_liquid_in_conical_flask + 3*0.01*0.025 /*We leave some extra room*/)/(16.0*Math.PI), 1.0/3.0);
 
 	context.beginPath();
-	context.moveTo(110, 365);
-	context.lineTo(110, 345);
-	context.lineTo(100, 345);
-	context.lineTo(100, 365);
+	context.moveTo(100 - 2 * conical_flask_radius * 500, 390);
+	context.lineTo(100 + 2 * conical_flask_radius * 500, 390);
+	context.lineTo(100 + conical_flask_radius * 500, 390 - 2 * conical_flask_radius * 500);
+	context.lineTo(100 - conical_flask_radius * 500, 390 - 2 * conical_flask_radius * 500);
 	context.closePath();
 	context.stroke();
 
-	// Filled bottom part
+	var imaginary_cone_radius = Math.pow(3*(volume_of_liquid_in_conical_flask - volume_of_base_drained*0.01)/(16.0*Math.PI), 1.0/3.0);
+	var liquid_height = 4 * conical_flask_radius - 4 * imaginary_cone_radius;
 	context.beginPath();
-	context.moveTo(90, 385);
-	context.lineTo(120, 385);
-	context.lineTo(110, 365);
-	context.lineTo(100, 365);
+	context.moveTo(100 - 2 * conical_flask_radius * 500, 390);
+	context.lineTo(100 + 2 * conical_flask_radius * 500, 390);
+	context.lineTo(100 + (2 * conical_flask_radius - liquid_height / 2.0) * 500, 390 - liquid_height * 500);
+	context.lineTo(100 - (2 * conical_flask_radius - liquid_height / 2.0) * 500, 390 - liquid_height * 500);
 	context.closePath();
-	context.stroke();
 	context.fill();
+
+	// Draw the neck
+	context.beginPath();
+	context.moveTo(100 - conical_flask_radius * 500, 390 - 2 * conical_flask_radius * 500);
+	context.lineTo(100 - conical_flask_radius * 500, 390 - 6 * conical_flask_radius * 500);
+	context.lineTo(100 + conical_flask_radius * 500, 390 - 6 * conical_flask_radius * 500);
+	context.lineTo(100 + conical_flask_radius * 500, 390 - 2 * conical_flask_radius * 500);
+	context.stroke();
 }
 
 function download_unknown() {
@@ -286,7 +294,6 @@ function download_unknown() {
 		<canvas id="canvas" width="200" height="400" style="width: 200px; height: 400px"></canvas>
 		<button style="display: block;" onclick="calculate(); start();">Simulate</button>
 		<p>The burette drains at 2.5cm<sup>3</sup> per second</p>
-		<p>Also, try not to break the simulation. It's only the conical flask (the square shaped container) is only meant to store 25cm<sup>3</sup> of liquid</p>
 	</center>
 
 	<h2>Description</h2>
