@@ -29,7 +29,7 @@
 		
 		<h2>Other</h2>
 		<ul>
-			<li><a href="games/index.html">Games</a></li>
+			<li><a href="crypto.html">Crypto</a></li>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
 			<li><a href="outthere/index.html">Articles</a></li>
 			<li><a href="yearbook/index.html">Yearbook Generator</a></li>
@@ -44,7 +44,7 @@
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
 			<li><a href="http://www.olabs.edu.in/">All the scientific simulations you could ever want</a></li>
 		</ul>
-
+		
 		<h2>Other links</h2>
 		<ul>
 			<li><a href="media/postman-amusing.epub">Amusing ourselves to death by Niel Postman</a></li>

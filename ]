@@ -150,12 +150,8 @@ function holy_trinity() {
 }
 
 function start() {
-	if (!loop_timer) {
-		time_elapsed = 0;
-		loop_timer = window.setInterval(simulate, timeout);
-	} else {
-		alert("Good scientists are patient");
-	}
+	time_elapsed = 0;
+	loop_timer = window.setInterval(simulate, timeout);
 }
 
 function simulate() {
@@ -167,7 +163,7 @@ function simulate() {
 		time_elapsed += unit_meaning;
 	} else {
 		upload();
-		loop_timer = window.clearInterval(loop_timer);
+		window.clearTimeout(loop_timer);
 	}
 	
 }
@@ -181,7 +177,7 @@ function draw() {
 	var top_of_flask = 390 - 4 * conical_flask_radius * 500;
 
 	// Draw burette
-	context.fillRect(95,(top_of_flask-10-250)+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
+	context.fillRect(95,25+volume_of_base_drained*10000, 10, 250-volume_of_base_drained*10000);
 	context.strokeRect(95, top_of_flask-250-10, 10, 250);
 
 	context.beginPath();
