@@ -31,8 +31,8 @@
 		<ul>
 			<li><a href="crypto.html">Crypto</a></li>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
-			<li><a href="outthere/index.html">Articles</a></li>
 			<li><a href="yearbook/index.html">Yearbook Generator</a></li>
+			<li><a href="outthere/index.html">Articles</a></li>
 		</ul>
 	</section>
 

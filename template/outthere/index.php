@@ -19,6 +19,8 @@
 	<h2>Other</h2>
 	<ul>
 		<li><a href="maybe.html">The maybevirus nondemic</a></li>
+		<li><a href="maybe-ammendum.html">More on the maybevirus nondemic</a></li>
+		<li><a href="formal-logic.md">Formal Logic</a></li>
 	</ul>
 	
 	</section>

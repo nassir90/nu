@@ -33,6 +33,3 @@ If it's too ugly, I'll just use the javascript only method.
 
 As for allowing the user to switch the substance whose properties are unknown, I considered putting all references to acid or base in `<span>` tags, and switching them depending on the unknown substance.
 I don't know whether or not this is a good idea.
-
-## Evaluation
-
