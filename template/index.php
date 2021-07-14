@@ -30,6 +30,7 @@
 		<h2>Other</h2>
 		<ul>
 			<li><a href="crypto.html">Crypto</a></li>
+			<li><a href="contact.html">Contact</a></li>
 			<li><a href="flashcardapp.html">Novelty app for flashcards <small>(requires javascript)</small></a></li>
 			<li><a href="yearbook/index.html">Yearbook Generator</a></li>
 			<li><a href="outthere/index.html">Articles</a></li>
