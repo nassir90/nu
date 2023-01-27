@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
 <head>
-	<title>Naza's Website</title>
+	<title>Naza's Website (&lt;2022)</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
 </head>
 
 <body>
-	<h1>Naza's website <small>(<a href="https://nassir90.github.io/nu-output/">secure version</a>)</small></h1>
+	<h1>Naza's website (&lt;2022) <small>(<a href="https://nassir90.github.io/nu-output/">secure version</a>)</small></h1>
 	
 	<section>
 		<h2>Languages used to make this page, in order of quality</h2>
@@ -45,14 +45,8 @@
 			<li><a href="https://thephysicsteacher.ie">Physics and Applied maths notes</a></li>
 			<li><a href="http://www.olabs.edu.in/">All the scientific simulations you could ever want</a></li>
 		</ul>
-		
-		<h2>Other links</h2>
-		<ul>
-			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
-			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a href="https://z-lib.org">Free books</a>
-			<li><a href="https://wttr.in">Instant weather</a></li>
-			<li><a href="https://iteroni.com">Youtube client without the crud</a></li>
-		</ul>
+
+        
+                <a href="index.html">Back to index</a>
 	</footer>
 </body>
