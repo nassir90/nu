@@ -1,6 +1,6 @@
 #!/bin/bash
-for file in $(find template | grep php); do
-	output=$(echo $file | sed s/.php/.html/ | sed s/template/output/);
+for file in $(find template -name '*.php'); do
+	output=$(echo ${file%.php}.html | sed s/template/output/);
 	echo "Building $file at $output"
-	php $file > $output;
+	resolve-simple.zsh $file | php > $output;
 done
