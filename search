@@ -1,6 +1,0 @@
-In order to incorporate search, I need a means of defining what pages ought to be searched.
-
-I could do this by:
-
-* Simply allocating a pure folder for articles.
-* Having some kind of meta tag either for searchability or non-searchability.

@@ -7,7 +7,7 @@ getopts "p" option && only_print=1 && shift 1
 # of simple.css in the project root relativises the simple.css. This
 # means that the site works with raw files as well as when being
 # hosted in a server.
-file=${1?Must provide a file to replace simple.css in!}
+file=${1:-/dev/stdin}
 target=$HOME/projects/nu/${2:-template}
 
 # E.g. ../../simple.css for the file chemistry/project/index.php

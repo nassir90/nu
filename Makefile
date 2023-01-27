@@ -1,25 +1,34 @@
-default: media php html md
+export PATH := $(PATH):./tools
+DESTDIR := ./output
+HTML := $(shell find template -name '*.html' -printf '%P\n') \
+	$(patsubst %.php,%.html,$(shell find template -name '*.php' -printf '%P\n')) \
+	$(patsubst %.md,%.html,$(shell find template -name '*.md' -printf '%P\n'))
+CSS := $(patsubst %.php,%,$(shell find template -name '*.css.php' -printf '%P\n'))
+FOLDERS := $(shell find template/ -type d -printf '$(DESTDIR)/%P\n')
 
-md: folders
-	PATH+=:./tools ./tools/process_md.sh
+default: $(FOLDERS) media $(addprefix $(DESTDIR)/,$(HTML)) $(addprefix $(DESTDIR)/,$(CSS))
+	./template/french/vocab/make_tables -d template/french/vocab/Mock -o $(DESTDIR)/french/vocab/index.html
 
-html: folders
-	./tools/move_html_files.sh
-	./template/french/vocab/make_tables -d template/french/vocab/Mock -o output/french/vocab/index.html
+$(DESTDIR)/%.css: template/%.css.php | $(FOLDERS)
+	php $< > $@
 
-php: folders
-	PATH+=:./tools && ./tools/process_php.sh
-	mv ./output/simple.{html,css}
-	mv ./output/style.{html,css}
+$(DESTDIR)/%.html: template/%.md | $(FOLDERS)
+	create $< -s $$(resolve-simple.zsh -p $<) -o $@
 
-media: folders
-	cp ./template/media ./output/ -R
+$(DESTDIR)/%.html: template/%.html | $(FOLDERS)
+	cp $< $@
 
-package: default
-	./tools/package.sh
+$(DESTDIR)/%.html: template/%.php | $(FOLDERS)
+	php $< > $@.tmp
+	resolve-simple.zsh $@.tmp output > $@
+	rm $@.tmp
 
-folders:
-	mkdir -p `find template/ -type d | sed 's/template/output/g'`
+media: | $(FOLDERS)
+	cp ./template/media $(DESTDIR)/ -R
+
+$(FOLDERS):
+	mkdir -p $@
 
 clean:
-	rm ./output -R
+	rm $(DESTDIR) -R
+
