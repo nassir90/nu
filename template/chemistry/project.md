@@ -1,1 +1,0 @@
-/home/naza/workspace/tom/doc/project.md

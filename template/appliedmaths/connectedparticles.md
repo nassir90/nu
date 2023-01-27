@@ -1,1 +1,0 @@
-/home/naza/workspace/physics_sim/doc/connectedparticles.md
