@@ -19,8 +19,7 @@
 		<h2>General links</h2>
 		<ul>
 			<li><a href="https://openra.net">OpenRA - an RTS game</a></li>
-			<li><a href="https://github.com/nassir90/nu">Github repo</a></li>
-			<li><a href="https://z-lib.org">Free books</a>
+			<li><a href="https://github.com/nassir90">Github repo</a></li>
 			<li><a href="https://wttr.in">Instant weather</a></li>
 			<li><a href="https://iteroni.com">Youtube client without the crud</a></li>
 		</ul>
