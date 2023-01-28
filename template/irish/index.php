@@ -19,6 +19,6 @@
 	</section>
 
 	<footer>
-		<a href="../index.html">Back to homepage</a>
+		<a href="../index-before-2022.html">Back to homepage</a>
 	</footer>
 </body>

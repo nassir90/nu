@@ -12,17 +12,10 @@
 
 	<h2>Linux/Technology</h2>
 	<ul>
-		<li><a href="/outthere/benefits-of-linux.html">Benefits of using linux</a></li>
-		<li><a href="/outthere/mock-simulation/tutorial.html">How I make a simulation</a></li>
+		<li><a href="./benefits-of-linux.html">Benefits of using linux</a></li>
+		<li><a href="./mock-simulation/tutorial.html">How I make a simulation</a></li>
 	</ul>
 
-	<h2>Other</h2>
-	<ul>
-		<li><a href="maybe.html">The maybevirus nondemic</a></li>
-		<li><a href="maybe-ammendum.html">More on the maybevirus nondemic</a></li>
-		<li><a href="formal-logic.md">Formal Logic</a></li>
-	</ul>
-	
 	</section>
-	<footer><a href="../index.html">Back to index</a></footer>
+	<footer><a href="../index-before-2022.html">Back to index</a></footer>
 </body>

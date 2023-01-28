@@ -1,5 +1,0 @@
-In order for me to implement searches and rss feeds (and less so automated indexing), I need to define what a content page is.
-A searchable content page should be synonomous with an rss element.
-
-* Title
-* Description
