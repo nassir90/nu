@@ -18,6 +18,7 @@ relative_location=$(realpath $target --relative-to `dirname $file`)
 awk -v single="'([^']*[.]css)'" \
     -v double='"([^"]*[.]css)"' \
     -v prefix=$relative_location \
-     'match($0, single, m) { gsub(single, prefix "/" gensub(".*/", "", "g", m[1])) } \
-      match($0, double, m) { gsub(double, prefix "/" gensub(".*/", "", "g", m[1])) }
+    'function basename (str) { return gensub(".*/", "", "g", str) }
+     match($0, single, m) { gsub(single, prefix "/" basename(m[1])) } \
+     match($0, double, m) { gsub(double, prefix "/" basename(m[1])) }
      { print }' $file
