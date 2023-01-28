@@ -11,8 +11,13 @@ file=${1:-/dev/stdin}
 target=$HOME/projects/nu/${2:-template}
 
 # E.g. ../../simple.css for the file chemistry/project/index.php
-relative_location=$(realpath $target --relative-to `dirname $file`)/simple.css
-[ $only_print ] && echo $relative_location && exit
+relative_location=$(realpath $target --relative-to `dirname $file`)
+[ $only_print ] && echo $relative_location/simple.css && exit
 
 # Replace the aforemenioned string link containing simple.css
-sed 's/\("[^"]*simple.css[^"]*"\|'"'[^']*simple.css[^']*'"'\)/'"\"${relative_location//\//\\/}\"/" $file
+awk -v single="'([^']*[.]css)'" \
+    -v double='"([^"]*[.]css)"' \
+    -v prefix=$relative_location \
+     'match($0, single, m) { gsub(single, prefix "/" gensub(".*/", "", "g", m[1])) } \
+      match($0, double, m) { gsub(double, prefix "/" gensub(".*/", "", "g", m[1])) }
+     { print }' $file
